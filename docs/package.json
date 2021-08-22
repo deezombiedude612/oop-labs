@@ -1,0 +1,19 @@
+{
+  "name": "oop-labs",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "authors": {
+    "name": "Henry Heng",
+    "email": "deezombiedude612@hotmail.com"
+  },
+  "repository": "/oop-labs",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
