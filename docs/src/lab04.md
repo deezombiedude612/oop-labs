@@ -4,10 +4,10 @@ editlink: true
 navbar: true
 ---
 
-# Practical 04: Arrays
+# Practical 04: Arrays and ArrayLists
 
 Arrays allow for storing a series of values within one data structure.
-We will be working on implementing solutions that involve the use of arrays in this practical.
+We will be working on implementing solutions that involve the use of arrays and ArrayList data structures in this practical.
 
 ## Tasks
 
@@ -113,61 +113,3 @@ Syntax for declaring and creating 2-dimensional arrays:
     dataType[][] variableName = new dataType[x][y];
 
 :::
-
-<!-- Use only for after Methods have been taught -->
-<!-- ### Task 5
-
-Write a program that randomly fills in 0s and 1s into a Tic-tac-toe board, prints the board, and find the rows, columns, or diagonals with all 0s or 1s.
-Use a two-dimensional array to represent a Tic-tac-toe board.
-
-::: details HINT
-Use `Math.random() * 2` to randomly generate the 0s and 1s.
-:::
-
-Here are some sample runs of the program:
-
-    TicTacToe board:
-    0 1 0
-    1 1 1
-    1 1 0
-
-    Result(s):
-    All 1's on row 1
-    All 1's on column 1
-
-<span></span>
-
-    TicTacToe board:
-    0 1 1
-    0 0 0
-    0 0 1
-
-    Result(s):
-    All 0's on row 1
-    All 0's on column 0
-
-<span></span>
-
-    TicTacToe board:
-    0 1 0
-    1 0 1
-    0 0 1
-
-    Result(s):
-    All 0's on subdiagonal
-
-<span></span>
-
-    TicTacToe board:
-    1 1 1
-    0 1 0
-    1 1 1
-
-    Result(s):
-    All 1's on row 0
-    All 1's on row 2
-    All 1's on column 1
-    All 1's on major diagonal
-    All 1's on subdiagonal
-
-<span></span> -->

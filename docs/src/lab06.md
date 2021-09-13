@@ -6,7 +6,16 @@ navbar: true
 
 # Practical 06: Classes and Objects
 
-We will now begin to implement classes in this practical session.
+We will now begin to implement classes and declare them as objects in this practical session.
+
+In procedural programming, the idea is to break down problems into required actions to be taken.
+Here, one may associate solutions as verbs (i.e., to-do actions).
+Previously, we only dabbled in one class file per task solution.
+In those classes, we still approached our solutions in a procedural programming manner.
+
+However, in object-oriented programming, one has to decompose problems into objects (i.e., nouns).
+One must consider what objects are needed in order for the program to function.
+These objects will contain attributes and methods (i.e., their own functions) to play roles in a program.
 
 ## Tasks
 
@@ -93,3 +102,21 @@ Sample output for the driver program:
     - A constructor with two parameters.
 
     Modify your test class to test the constructors you have defined.
+
+### Task 3
+
+Create a class based on the following class diagram:
+
+![Task 3 Class Diagram](./images/lab06-03.png)
+
+Note:
+
+- Initialize the value of `type` to “Apartment”, `zone` to ‘A’, `price` to 68000.00, `numberOfBedrooms` to 3 and `freehold` to `false` for no-arg constructor.
+- Use the `toString()` method to print out all house details.
+
+1. Create a driver program for the class you just created to test all the available constructors and methods.
+
+   - Create three house objects.
+   - Create an array to store the three house objects.
+
+2. Modify the `House` class by using the `this` keyword to refer to the data member(s) and constructor (if possible).

@@ -7,6 +7,8 @@ navbar: true
 # Practical 01: Getting Started with Java
 
 This practical will serve as a starting point to getting used to programming in Java.
+However, all object-oriented programming concepts learnt in this module can also be applied into other object-oriented programming languages like C#, or other languages that have support for it like PHP.
+Java is only considered a fully object-oriented programming language that's a good starting language to use to learn such concepts.
 
 ## Tasks
 

@@ -21,14 +21,14 @@ The aim of these practical lab exercises is to guide the students in mastering t
 | **3** <br> 6 Sept - 10 Sept  | Program Control Structure (Part 1): Selection Statements | [Practical 2](lab02.md)           |
 | **4** <br> 13 Sept - 17 Sept | Program Control Structure (Part 2): Loop Statements      | [Practical 3](lab03.md)           |
 | **5** <br> 20 Sept - 24 Sept | Arrays and ArrayList                                     | [Practical 4](lab04.md)           |
-|  **6** <br> 27 Sept - 1 Oct  | Method                                                   | [Practical 5](lab05.md)           |
+|  **6** <br> 27 Sept - 1 Oct  | Methods                                                  | [Practical 5](lab05.md)           |
 |   **7** <br> 4 Oct - 8 Oct   | OOP Principles (Part 1): Designing Classes               | [Practical 6](lab06.md)           |
 |  **8** <br> 11 Oct - 15 Oct  | OOP Principles (Part 2): Inheritance                     | [Practical 7](lab07.md)           |
 |  **9** <br> 18 Oct - 22 Oct  | OOP Principles (Part 3): Polymorphism                    | [Practical 8](lab08.md)           |
-| **10** <br> 25 Oct - 29 Oct  | OOP Principles (Part 4): Abstract Classes & Interfaces   | [Practical 9](lab09.md)           |
-|  **11** <br> 1 Nov - 5 Nov   |                                                          | [Practical 10](lab10.md)          |
-|  **12** <br> 8 Nov - 12 Nov  | Exception Handling                                       | [Practical 11](lab11.md)          |
-| **13** <br> 15 Nov - 19 Nov  | File I/O                                                 | [Practical 12](lab12.md)          |
+| **10** <br> 25 Oct - 29 Oct  | OOP Principles (Part 4): Abstract Classes & Interfaces   | Practical Test                    |
+|  **11** <br> 1 Nov - 5 Nov   |                                                          | [Practical 9](lab09.md)           |
+|  **12** <br> 8 Nov - 12 Nov  | Exception Handling                                       | [Practical 10](lab10.md)          |
+| **13** <br> 15 Nov - 19 Nov  | File I/O                                                 | [Practical 11](lab11.md)          |
 | **14** <br> 22 Nov - 26 Nov  | Wrap-up Lecture and FE Briefing                          |                                   |
 
 ::: warning NOTE
