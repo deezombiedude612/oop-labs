@@ -7,24 +7,16 @@ navbar: true
 # Practical 05: Methods
 
 Aside from being able to modularize code, using methods is integral to when we start covering Classes and Objects in the next session.
-This practical introduces use of methods that will be used alongside the main method.
 
-## Functions or Methods.. what gives!?
-
-Methods and functions tend to be used interchangably (and in erroneous fashion a lot of the time); however, methods have a deeper meaning than functions.
+::: tip INFO
+Methods and functions tend to be used interchangably, however methods have a deeper meaning than functions.
 Functions are used to carry out a process that changes input into output.
 Whether these functions are useful in a certain context is dependent on when and/or where they are used.
 
-Within the OOP context, these functions are sometimes called methods (or operations).
-You can view methods as like **a way how objects do things**.
+Within the OOP context, these functions are sometimes called methods (sometimes called operations).
+You can view methods as like a way how objects do things.
 For example, the method a person speaks involves opening their mouth and letting out their voice.
-Here, if you were to model a person as a class, this class would have a speaking function that's referred as a method.
 In this case, unlike functions, methods are meant to have meaningful purposes.
-
-::: tip BOTTOM LINE
-If a function can be attributed to an object, it's called a method.
-In fully object-oriented languages like in Java where everything is built in classes, all functions are called methods.
-More about classes and objects will be covered in the next lecture.
 :::
 
 ## Activity: Decomposing a Complex Program into Methods
@@ -281,9 +273,7 @@ Use the following method header:
 public static int mulDigit (int n)
 ```
 
-For example, `mulDigit(234)` returns 24 (i.e., $2 \times 3 \times 4$).
-
-<!-- For example, `mulDigit(234)` returns 24 (i.e., 2 &#215; 3 &#215; 4). -->
+For exmaple, `mulDigit(234)` returns 24 (i.e., 2 &#215; 3 &#215; 4).
 
 ::: details HINT
 Use the `%` operator to extract digits, and the `/` operator to remove the extracted digit.
@@ -312,11 +302,9 @@ Create a class called `PrimeNumber` which contains 3 methods:
 ### Task 3
 
 Write a method that converts a hexadecimal number into a decimal number.
-For example, ABCD<sub>16</sub> is calculated as
+For example,
 
-$$ = A \times 16^3 + B \times 16^2 + C \times 16^1 + D \times 16^0 = 43981 $$
-
-<!-- ABCD<sub>16</sub> = A &#215; 16<sup>3</sup> + B &#215; 16<sup>2</sup> + C &#215; 16<sup>1</sup> + D &#215; 16<sup>0</sup> = 43981 -->
+ABCD<sub>16</sub> = A &#215; 16<sup>3</sup> + B &#215; 16<sup>2</sup> + C &#215; 16<sup>1</sup> + D &#215; 16<sup>0</sup> = 43981
 
 You may use the following reference:
 
@@ -362,13 +350,9 @@ public static double kilogramToPound(double kilogram)
 
 The formula for the conversion is:
 
-$$ pounds = 0.453 \times kilograms $$
+pound = 0.453 &#215; kilograms
 
-$$ kilograms = 2.204 \times pounds $$
-
-<!-- pound = 0.453 &#215; kilograms -->
-
-<!-- kilogram = 2.204 &#215; pound -->
+kilogram = 2.204 &#215; pound
 
 Write a test program that invokes these methods when necessary after prompting to enter either a value in kilograms or pounds (ask for choice first).
 

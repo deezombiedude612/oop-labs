@@ -15,7 +15,7 @@ The following shows a for loop which iterates from 0 to 7, adding each iterated 
 
 ```java
 int sum = 0;
-for (int i = 0; i <= 7; i++) {
+for(int i = 0; i <= 7; i++) {
 	sum = sum + i;
 }
 ```
@@ -28,7 +28,7 @@ for (int i = 0; i <= 7; i++) {
 
 ```java
 int sum = 0;
-for (int i = 7; i < 7; i++) {
+for(int i = 7; i < 7; i++) {
 	sum = sum + i;
 	System.out.println("Value of sum: " + sum);
 }
@@ -61,13 +61,13 @@ Sample Output:
     89.00 degrees Farenheit is 31.67 degrees Celsius.
 
     Farenheit Temperature #3: 34
-    34.00 degrees Farenheit is 1.11 degrees Celsius.
+    67.00 degrees Farenheit is 1.11 degrees Celsius.
 
     Farenheit Temperature #2: 67
-    67.00 degrees Farenheit is 19.44 degrees Celsius.
+    89.00 degrees Farenheit is 19.44 degrees Celsius.
 
     Farenheit Temperature #5: 34
-    34.00 degrees Farenheit is 1.1 degrees Celsius.
+    89.00 degrees Farenheit is 1.1 degrees Celsius.
 
     All Temperatures Processed
 
@@ -80,10 +80,6 @@ A negative integer is treated the same as a positive integer.
 Here are sample runs of this program:
 
 ![Task 3 Output](./images/lab03-03.png)
-
-#### Challenge
-
-Modify the program to check for 4-digit palindromes.
 
 ### Task 4
 
@@ -133,5 +129,4 @@ For instance, `932 % 10 = 2` and `932 / 10 = 93`.
 ### Task 6
 
 Construct a calculator program that takes in 2 integer variables and performs one of the following mathematical operations by choice: addition, subtraction, multiplication, division, and modulo (the remainder function).
-
-Include a **selection menu** to prompt the user to select the desired mathematical operation.
+Include a selection menu to prompt the user to select the desired mathematical operation.

@@ -10,6 +10,111 @@ This practical will serve as a starting point to getting used to programming in 
 However, all object-oriented programming concepts learnt in this module can also be applied into other object-oriented programming languages like C#, or other languages that have support for it like PHP.
 Java is only considered a fully object-oriented programming language that's a good starting language to use to learn such concepts.
 
+## Getting Started
+
+### Creating Java files
+
+To create a Java file, right-click on your `src` folder, and under `New >`, select `Java Class`.
+Feel free to name your Java class in any way you wish, but ensure that **NO SPACES** are used inside them.
+
+![Lab 01 Creating Classes](./images/lab01-prep01.png)
+
+We will revisit this when we learn about Interfaces in an upcoming session.
+
+### Creating Packages
+
+When creating your Java files, you can keep them directly within your `src` folder, or in packages.
+To create a package in your project folder in IntelliJ Idea, simply right-click on your `src` folder, and under `New >`, select `Package`.
+Name the package as you please, and it will now provide a separate folder that will act like a folder that is its own environment for all the Java files placed here.
+
+### Main Method and Execution
+
+Upon creating your Java file, whether directly inside your `src` folder or within a package itself, you should see something like this:
+
+![Lab 01 Java File Init](./images/lab01-prep02.png)
+
+::: tip View for Java Files in Packages
+If your Java file is located inside a package (in this example, `PackageNameHere`), there should be an extra line on top that says:
+
+```java
+package PackageNameHere;
+```
+
+:::
+
+::: danger DO NOT CHANGE YOUR CLASS NAME!!
+Keep the Java class name as is.
+The name of the Java class should always be the same as the name of your `.java` file – this means that if you have a `.java` file named `Exercise01`, the name of the class should also be `Exercise01`.
+
+```java{1}
+public class Exercise01 {
+
+}
+```
+
+If you change it to something else, you will find that the program runs into some Errors during Building and Compilation of the project!
+:::
+
+Your basic Java program will typically have a `main` method, from which your program will begin operations from.
+The main method declaration is rather verbose, but each keyword used here has a meaning (more of which will make sense as upcoming lectures revolving methods and visibility are covered).
+
+Declaring the main method should be like as follows:
+
+```java{2}
+public class Exercise01 {
+	public static void main(String[] args) {
+
+	}
+}
+```
+
+### Printing in Java
+
+Printing in Java will require a line like as follows:
+
+```java
+System.out.println("Hello World!");
+```
+
+Take note that there are variations of the print statement, all of which you can use are as follows:
+
+- `System.out.println()`: Prints everything inside the parentheses, and adds an additional new-space character (`\n`) automatically
+- `System.out.print()`: Prints everything inside the parentheses without any additional characters appended to the back
+- `System.out.printf()`: Prints everything with the same convention as a `printf()` statement from the C language, without any additional characters appended to the back
+
+### Retrieving User Input in Java
+
+Retrieving user input in Java will require use of the `Scanner` object.
+You can declare a standard `Scanner` object at the beginning of the main method like as follows:
+
+```java{3}
+public class Example01 {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+
+	}
+}
+```
+
+Here, we name our `Scanner` object as `input`.
+However you wish to name it is not set in stone, but given proper naming conventions, one should name all objects (and by extension, your class name as well) with the **Pascal Naming Convention**.
+
+Notice that IntelliJ Idea may include an import statement before your class declaration statement (if not, you should manually include this yourself):
+
+```java{1}
+import java.util.Scanner;
+
+public class Example01 {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+
+	}
+}
+```
+
+Essentially, the `Scanner` library class should be imported in order to make use fo it in your program.
+This will apply to many other library classes you may end up using when using many other different functions that are not baked into Java by default.
+
 ## Tasks
 
 ### Task 1

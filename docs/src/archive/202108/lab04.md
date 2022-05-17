@@ -34,71 +34,6 @@ For the second array, randomly generate 10 numbers between -100 and 100.
 
 ### Task 3
 
-Suppose the weekly hours for all employees are stored in a two-dimensional array.
-Each row records an employee's seven-day work hours with seven columns.
-For example, the following array stores the work hours for eight employees.
-Write a program that displays employees and their total hours worked.
-Initialize the array with the values shown in the following table.
-
-|            | Sun | Mon | Tues | Wed | Thur | Fri | Sat |
-| ---------- | :-: | :-: | :--: | :-: | :--: | :-: | :-: |
-| Employee 0 |  2  |  4  |  3   |  4  |  5   |  8  |  8  |
-| Employee 1 |  7  |  3  |  4   |  3  |  3   |  4  |  4  |
-| Employee 2 |  3  |  3  |  4   |  3  |  3   |  2  |  2  |
-| Employee 3 |  9  |  3  |  4   |  7  |  3   |  4  |  1  |
-| Employee 4 |  3  |  5  |  4   |  3  |  6   |  3  |  8  |
-| Employee 5 |  3  |  4  |  4   |  6  |  3   |  4  |  4  |
-| Employee 6 |  3  |  7  |  4   |  8  |  3   |  8  |  4  |
-| Employee 7 |  6  |  3  |  5   |  9  |  2   |  7  |  9  |
-
-Sample Output:
-
-    The total working hours in a week for
-    Employee 0 is 34 hours
-    Employee 1 is 28 hours
-    Employee 2 is 20 hours
-    Employee 3 is 31 hours
-    Employee 4 is 32 hours
-    Employee 5 is 28 hours
-    Employee 6 is 37 hours
-    Employee 7 is 41 hours
-
-::: details NOTE
-Syntax for declaring and creating 2-dimensional arrays:
-
-    dataType[][] variableName = new dataType[x][y];
-
-:::
-
-### Task 4
-
-Write a Java program that reads an unspecified number of scores and determines how many scores are above or equal to the average and how many scores are below the average.
-Enter a negative number to signify the end of the input.
-Assume that the maximum number of scores that can be input is 10.
-
-Sample Output:
-
-    Enter the scores (negative number to end)
-
-    Score 1: 10
-    Score 2: 10
-    Score 3: 6
-    Score 4: 6
-    Score 5: 2
-    Score 6: -1
-
-    Results
-    =======
-    Average is 6.8
-    Number of scores above or equal to the average is 2
-    NUmber of scores below the average is 3
-
-    Process completed.
-
-## Extra Activity: Bubble Sort
-
-Write a program that sorts an array of integers using bubble sort.
-
 Bubble sort works by swapping adjacent elements if they are not in the desired order.
 This process repeats from the beginning of the array until all elements are in order.
 
@@ -141,8 +76,65 @@ You may try out your algorithm with the following sample arrays:
 3. `[6, 21, -43, 12, 75, -32, -6]`
 4. Array of 10 randomly generated numbers (between 0 and 100)
 
-You can view the video tutorial as shown below to gain a better understanding behind how it works.
+### Task 4
 
-<div style="text-align: center;">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/uJLwnsLn0_Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+Suppose the weekly hours for all employees are stored in a two-dimensional array.
+Each row records an employee's seven-day work hours with seven columns.
+For example, the following array stores the work hours for eight employees.
+Write a program that displays employees and their total hours worked.
+Initialize the array with the values shown in the following table.
+
+|            | Sun | Mon | Tues | Wed | Thur | Fri | Sat |
+| ---------- | :-: | :-: | :--: | :-: | :--: | :-: | :-: |
+| Employee 0 |  2  |  4  |  3   |  4  |  5   |  8  |  8  |
+| Employee 1 |  7  |  3  |  4   |  3  |  3   |  4  |  4  |
+| Employee 2 |  3  |  3  |  4   |  3  |  3   |  2  |  2  |
+| Employee 3 |  9  |  3  |  4   |  7  |  3   |  4  |  1  |
+| Employee 4 |  3  |  5  |  4   |  3  |  6   |  3  |  8  |
+| Employee 5 |  3  |  4  |  4   |  6  |  3   |  4  |  4  |
+| Employee 6 |  3  |  7  |  4   |  8  |  3   |  8  |  4  |
+| Employee 7 |  6  |  3  |  5   |  9  |  2   |  7  |  9  |
+
+Sample Output:
+
+    The total working hours in a week for
+    Employee 0 is 34 hours
+    Employee 1 is 28 hours
+    Employee 2 is 20 hours
+    Employee 3 is 31 hours
+    Employee 4 is 32 hours
+    Employee 5 is 28 hours
+    Employee 6 is 37 hours
+    Employee 7 is 41 hours
+
+::: details NOTE
+Syntax for declaring and creating 2-dimensional arrays:
+
+    dataType[][] variableName = new dataType[x][y];
+
+:::
+
+### Task 5
+
+Write a Java program that reads an unspecified number of scores and determines how many scores are above or equal to the average and how many scores are below the average.
+Enter a negative number to signify the end of the input.
+Assume that the maximum number of scores that can be input is 10.
+
+Sample Output:
+
+    Enter the scores (negative number to end)
+
+    Score 1: 10
+    Score 2: 10
+    Score 3: 6
+    Score 4: 6
+    Score 5: 2
+    Score 6: -1
+
+    Results
+    =======
+    Average is 6.8
+    Number of scores above or equal to the average is 2
+    NUmber of scores below the average is 3
+
+    Process completed.

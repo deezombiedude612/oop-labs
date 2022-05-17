@@ -14,6 +14,8 @@ module.exports = {
 		["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
 		["meta", { name: "apple-mobile-web-app-status-bar-style", content: "black" }],
 		["link", { rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" }],
+		["link", { rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css" }],
+		["link", { rel: "stylesheet", href: "https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css" }],
 		["link", { rel: "icon", type: "image/png", href: "/assets/images/hhicon.png" }],
 	],
 
@@ -39,15 +41,36 @@ module.exports = {
 		docsDir: "",
 		editLinkText: "",
 		lastUpdated: true,
+		sidebarDepth: 4,
 		nav: [
-			{ text: "WP", link: "https://deezombiedude612.github.io/wp-labs" },
-			{ text: "OOP", link: "/" },
-			{ text: "OOAD", link: "https://deezombiedude612.github.io/ooad-labs" },
+			{ text: "Practical Preparation", link: "/lab00" },
+			{
+				text: "TC Practical Labs",
+				items: [
+					{ text: "ITS30505: Introduction to Computing", link: "https://deezombiedude612.github.io/itc-labs" },
+					{ text: "ITS30605: Web Programming", link: "https://deezombiedude612.github.io/wp-labs" },
+					{ text: "ITS42004: Object-Oriented Programming", link: "/" },
+					{
+						text: "ITS42104: Object-Oriented Analysis and Design (old)",
+						link: "https://deezombiedude612.github.io/ooad-labs",
+					},
+				],
+			},
+			{
+				text: "Archive",
+				items: [
+					{
+						text: "2021 August",
+						link: "/archive/202108/",
+					},
+				],
+			},
+			// { text: "OOAD", link: "https://deezombiedude612.github.io/ooad-labs" },
 		],
 		sidebar: [
 			"/",
 			{
-				title: "2021 August",
+				title: "2022 April",
 				collapsable: false,
 				children: [
 					"/lab00",
@@ -56,23 +79,46 @@ module.exports = {
 					"/lab03",
 					"/lab04",
 					"/lab05",
-					"/lab06",
-					"/lab07",
-					"/lab08",
-					"/lab09",
-					"/lab10",
-					"/lab11",
+					// "/lab06",
+					// "/lab07",
+					// "/lab08",
+					// "/lab09",
+					// "/lab10",
+					// "/lab11",
 				],
 			},
 			{
 				title: "Archive",
 				collapsible: true,
-				children: [],
+				children: [
+					{
+						title: "2021 August",
+						collapsable: true,
+						children: [
+							"/archive/202108/",
+							"/archive/202108/lab00",
+							"/archive/202108/lab01",
+							"/archive/202108/lab02",
+							"/archive/202108/lab03",
+							"/archive/202108/lab04",
+							"/archive/202108/lab05",
+							"/archive/202108/lab06",
+							"/archive/202108/lab07",
+							"/archive/202108/lab08",
+							"/archive/202108/lab09",
+							"/archive/202108/lab10",
+							"/archive/202108/lab11",
+						],
+					},
+				],
 			},
 		],
 	},
 	markdown: {
 		lineNumbers: true,
+		extendMarkdown: (md) => {
+			md.use(require("markdown-it-katex"));
+		},
 	},
 
 	/**
