@@ -135,9 +135,7 @@ We've already established the fact that full-time staff's salary is equal to the
 Let's assume that the `FullTimeStaff` class has a specific method that is used during the calculation of the salary such that the bonus depends on the amount of contribution hours put in.
 Specifically, assume
 
-<div class="text-center">
-Bonus Received = $ (Number of contribution hours &#215; 100)
-</div>
+$$ \text{Bonus Received} = \$(\text{Number of contribution hours} \times 100 ) $$
 
 We will call this method `getBonus()`.
 
