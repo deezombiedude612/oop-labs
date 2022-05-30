@@ -195,7 +195,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../lab00/" class="md-tabs__link">
+      <a href="../practical-preparation/" class="md-tabs__link">
         Guides
       </a>
     </li>
@@ -355,7 +355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lab00/" class="md-nav__link">
+      <a href="../practical-preparation/" class="md-nav__link">
         Practical Preparation
       </a>
     </li>
@@ -587,6 +587,34 @@
     <li class="md-nav__item">
       <a href="../lab09/" class="md-nav__link">
         Practical 09: Abstract Classes and Interfaces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab10/" class="md-nav__link">
+        Practical 10: Exception Handling
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab11/" class="md-nav__link">
+        Practical 11: File I/O
       </a>
     </li>
   
@@ -904,7 +932,32 @@ These objects will contain attributes and methods (i.e., their own functions) to
 <h2 id="tasks">Tasks</h2>
 <h3 id="task-1">Task 1</h3>
 <p>Create a class named <code>Household</code> (save as <code>Household.java</code>) that includes a default constructor and two data fields (number of occupants and annual income).
+The first data field has been created for you in the following code snippet.
 And then, create a driver program (save as <code>TestHousehold.java</code>) to test the class.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Household.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span>
+<span class="normal"><a href="#__codelineno-0-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Household</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="hll"><span class="w">   </span><span class="cm">/* attributes here */</span><span class="w"></span>
+</span><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="hll"><span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numberOfOccupants</span><span class="p">;</span><span class="w"></span>
+</span><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="hll"><span class="w">   </span><span class="c1">// declare the annual income attribute here</span><span class="w"></span>
+</span><a id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">   </span><span class="cm">/* methods here */</span><span class="w"></span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">TestHousehold.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TestHousehold</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="hll"><span class="w">        </span><span class="c1">// enter stuff here to test your program for this task</span><span class="w"></span>
+</span><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <p>Sample output for the driver program:</p>
 <div class="highlight"><pre><span></span><code>Household 1
 ***********
@@ -915,22 +968,118 @@ Values have been modified
 Number of occupants: 6
 Annual Income: 25,000.00
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Up to this point, you may have ensured that each task is completed within one Java class file.
+However, going forward for the next few practical exercises, your tasks will necessitate the need to create more than one Java class file per task.
+If you wish to keep each task work separate rather but not need to create new Java projects each time, consider keeping them in separate packages instead.</p>
+</div>
 <ol>
 <li>
 <p>Modify the default constructor for the <code>Household</code> class to set the occupants field to 1 and annual income field to 0.
     Then, run the driver program again.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Household.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Household</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="cm">/* attributes here */</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="cm">/* methods here */</span><span class="w"></span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="hll"><span class="w">    </span><span class="c1">// default constructor (no-arg constructor)</span><span class="w"></span>
+</span><a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="hll"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">HouseHold</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="hll"><span class="w">        </span><span class="c1">// work here</span><span class="w"></span>
+</span><a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="hll"><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</span><a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </li>
 <li>
 <p>Create an additional overloaded constructor for the <code>Household</code> class.
     This constructor receives an integer argument and assigns the value to the occupant field.
     Change any needed statements to the driver program to ensure that the overloaded constructor works correctly.
     Save and test the changes made.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Household.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Household</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="cm">/* attributes here */</span><span class="w"></span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="cm">/* methods here */</span><span class="w"></span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="c1">// default constructor (no-arg constructor)</span><span class="w"></span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">HouseHold</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">        </span><span class="cm">/* ... */</span><span class="w"></span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="hll"><span class="w">    </span><span class="c1">// overloaded constructor</span><span class="w"></span>
+</span><a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="hll"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Household</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numberOfOccupants</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="hll"><span class="w">        </span><span class="c1">// work here</span><span class="w"></span>
+</span><a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="hll"><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</span><a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </li>
 <li>
-<p>Create a third overloaded constructor for the <code>Household</code> class.
+<p>Create another overloaded constructor for the <code>Household</code> class.
     This constructor receives two arguments, the values of which are assigned to the occupant and income fields respectively.
     Add any needed statements to the driver program to ensure that the overloaded constructor works correctly.
     Save and test the changes made.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Household.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span>
+<span class="normal"><a href="#__codelineno-4-17">17</a></span>
+<span class="normal"><a href="#__codelineno-4-18">18</a></span>
+<span class="normal"><a href="#__codelineno-4-19">19</a></span>
+<span class="normal"><a href="#__codelineno-4-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Household</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="cm">/* attributes here */</span><span class="w"></span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="cm">/* methods here */</span><span class="w"></span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="c1">// default constructor (no-arg constructor)</span><span class="w"></span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">HouseHold</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">        </span><span class="cm">/* ... */</span><span class="w"></span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">    </span><span class="c1">// overloaded constructor #1</span><span class="w"></span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Household</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numberOfOccupants</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">        </span><span class="cm">/* ... */</span><span class="w"></span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a>
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="hll"><span class="w">    </span><span class="c1">// overloaded constructor #2</span><span class="w"></span>
+</span><a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="hll"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">HouseHold</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numberOfOccupants</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">annualIncome</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><a id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="hll"><span class="w">        </span><span class="c1">// work here</span><span class="w"></span>
+</span><a id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="hll"><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</span><a id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </li>
 <li>
 <p>Create a method named <code>calcAverageIncome()</code> (add it to the <code>Household</code> class) to calculate the average income for each household.
@@ -939,6 +1088,56 @@ Annual Income: 25,000.00
 </code></pre></div>
 <p>Add any needed statements to the driver program to ensure that the method works correctly.
 Save and test the changes made.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Household.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span>
+<span class="normal"><a href="#__codelineno-5-17">17</a></span>
+<span class="normal"><a href="#__codelineno-5-18">18</a></span>
+<span class="normal"><a href="#__codelineno-5-19">19</a></span>
+<span class="normal"><a href="#__codelineno-5-20">20</a></span>
+<span class="normal"><a href="#__codelineno-5-21">21</a></span>
+<span class="normal"><a href="#__codelineno-5-22">22</a></span>
+<span class="normal"><a href="#__codelineno-5-23">23</a></span>
+<span class="normal"><a href="#__codelineno-5-24">24</a></span>
+<span class="normal"><a href="#__codelineno-5-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Household</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="cm">/* attributes here */</span><span class="w"></span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="cm">/* methods here */</span><span class="w"></span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="c1">// default constructor (no-arg constructor)</span><span class="w"></span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">HouseHold</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">        </span><span class="cm">/* ... */</span><span class="w"></span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">    </span><span class="c1">// overloaded constructor #1</span><span class="w"></span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Household</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numberOfOccupants</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">        </span><span class="cm">/* ... */</span><span class="w"></span>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="w">    </span><span class="c1">// overloaded constructor #2</span><span class="w"></span>
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">HouseHold</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numberOfOccupants</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">annualIncome</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="w">        </span><span class="cm">/* ... */</span><span class="w"></span>
+<a id="__codelineno-5-19" name="__codelineno-5-19"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-5-20" name="__codelineno-5-20"></a>
+<a id="__codelineno-5-21" name="__codelineno-5-21"></a><span class="hll"><span class="w">    </span><span class="c1">// calculates average income of household</span><span class="w"></span>
+</span><a id="__codelineno-5-22" name="__codelineno-5-22"></a><span class="hll"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">calcAverageIncome</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</span><a id="__codelineno-5-23" name="__codelineno-5-23"></a><span class="hll"><span class="w">        </span><span class="c1">// work here</span><span class="w"></span>
+</span><a id="__codelineno-5-24" name="__codelineno-5-24"></a><span class="hll"><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</span><a id="__codelineno-5-25" name="__codelineno-5-25"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 </li>
 </ol>
 <h3 id="task-2">Task 2</h3>
@@ -953,6 +1152,18 @@ Planet Name: Earth
 Travel Days: 365
 </code></pre></div>
 <ol>
+<li>
+<p>Add the following constructors to your <code>Planet</code> class:</p>
+<ul>
+<li>
+<p>A no-arg constructor to initialize the value of <code>name</code> to "Earth" and <code>travelDays</code> to 365.</p>
+</li>
+<li>
+<p>A constructor with two parameters.</p>
+</li>
+</ul>
+<p>Modify your test class to test the constructors you have defined.</p>
+</li>
 <li>
 <p>Add a <code>calculateAge()</code> method to your <code>Planet</code> class which calculates the person's age on that planet.
     Use the following formula:</p>
@@ -995,18 +1206,6 @@ Planet Name: Venus
 Travel Days: 255
 Age on Venus: 28
 </code></pre></div>
-</li>
-<li>
-<p>Add the following constructors to your <code>Planet</code> class:</p>
-<ul>
-<li>
-<p>A no-arg constructor to initialize the value of <code>name</code> to "Earth" and <code>travelDays</code> to 365.</p>
-</li>
-<li>
-<p>A constructor with two parameters.</p>
-</li>
-</ul>
-<p>Modify your test class to test the constructors you have defined.</p>
 </li>
 </ol>
 <h3 id="task-3">Task 3</h3>

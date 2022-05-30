@@ -20,7 +20,26 @@ These objects will contain attributes and methods (i.e., their own functions) to
 ### Task 1
 
 Create a class named `Household` (save as `Household.java`) that includes a default constructor and two data fields (number of occupants and annual income).
+The first data field has been created for you in the following code snippet.
 And then, create a driver program (save as `TestHousehold.java`) to test the class.
+
+```java linenums="1" hl_lines="2-4" title="Household.java"
+public class Household {
+   /* attributes here */
+   private int numberOfOccupants;
+   // declare the annual income attribute here
+
+   /* methods here */
+}
+```
+
+```java linenums="1" hl_lines="3" title="TestHousehold.java"
+public class TestHousehold {
+    public static void main(String[] args) {
+        // enter stuff here to test your program for this task
+    }
+}
+```
 
 Sample output for the driver program:
 
@@ -33,18 +52,78 @@ Sample output for the driver program:
     Number of occupants: 6
     Annual Income: 25,000.00
 
+!!! note
+
+    Up to this point, you may have ensured that each task is completed within one Java class file.
+    However, going forward for the next few practical exercises, your tasks will necessitate the need to create more than one Java class file per task.
+    If you wish to keep each task work separate rather but not need to create new Java projects each time, consider keeping them in separate packages instead.
+
 1.  Modify the default constructor for the `Household` class to set the occupants field to 1 and annual income field to 0.
     Then, run the driver program again.
+
+    ```java linenums="1" hl_lines="6-9" title="Household.java"
+    public class Household {
+        /* attributes here */
+
+        /* methods here */
+
+        // default constructor (no-arg constructor)
+        public HouseHold() {
+            // work here
+        }
+    }
+    ```
 
 2.  Create an additional overloaded constructor for the `Household` class.
     This constructor receives an integer argument and assigns the value to the occupant field.
     Change any needed statements to the driver program to ensure that the overloaded constructor works correctly.
     Save and test the changes made.
 
-3.  Create a third overloaded constructor for the `Household` class.
+    ```java linenums="1" hl_lines="11-14" title="Household.java"
+    public class Household {
+        /* attributes here */
+
+        /* methods here */
+
+        // default constructor (no-arg constructor)
+        public HouseHold() {
+            /* ... */
+        }
+
+        // overloaded constructor
+        public Household(int numberOfOccupants) {
+            // work here
+        }
+    }
+    ```
+
+3.  Create another overloaded constructor for the `Household` class.
     This constructor receives two arguments, the values of which are assigned to the occupant and income fields respectively.
     Add any needed statements to the driver program to ensure that the overloaded constructor works correctly.
     Save and test the changes made.
+
+    ```java linenums="1" hl_lines="16-19" title="Household.java"
+    public class Household {
+        /* attributes here */
+
+        /* methods here */
+
+        // default constructor (no-arg constructor)
+        public HouseHold() {
+            /* ... */
+        }
+
+        // overloaded constructor #1
+        public Household(int numberOfOccupants) {
+            /* ... */
+        }
+
+        // overloaded constructor #2
+        public HouseHold(int numberOfOccupants, double annualIncome) {
+            // work here
+        }
+    }
+    ```
 
 4.  Create a method named `calcAverageIncome()` (add it to the `Household` class) to calculate the average income for each household.
     The formula is as follows:
@@ -53,6 +132,34 @@ Sample output for the driver program:
 
     Add any needed statements to the driver program to ensure that the method works correctly.
     Save and test the changes made.
+
+    ```java linenums="1" hl_lines="21-24" title="Household.java"
+    public class Household {
+        /* attributes here */
+
+        /* methods here */
+
+        // default constructor (no-arg constructor)
+        public HouseHold() {
+            /* ... */
+        }
+
+        // overloaded constructor #1
+        public Household(int numberOfOccupants) {
+            /* ... */
+        }
+
+        // overloaded constructor #2
+        public HouseHold(int numberOfOccupants, double annualIncome) {
+            /* ... */
+        }
+
+        // calculates average income of household
+        public double calcAverageIncome() {
+            // work here
+        }
+    }
+    ```
 
 ### Task 2
 
@@ -68,7 +175,15 @@ Sample output for the driver program:
     Planet Name: Earth
     Travel Days: 365
 
-1.  Add a `calculateAge()` method to your `Planet` class which calculates the person's age on that planet.
+1.  Add the following constructors to your `Planet` class:
+
+    - A no-arg constructor to initialize the value of `name` to "Earth" and `travelDays` to 365.
+
+    - A constructor with two parameters.
+
+    Modify your test class to test the constructors you have defined.
+
+2.  Add a `calculateAge()` method to your `Planet` class which calculates the person's age on that planet.
     Use the following formula:
 
         Age on the planet = (age * 365) / travelDays
@@ -92,14 +207,6 @@ Sample output for the driver program:
         Planet Name: Venus
         Travel Days: 255
         Age on Venus: 28
-
-2.  Add the following constructors to your `Planet` class:
-
-    - A no-arg constructor to initialize the value of `name` to "Earth" and `travelDays` to 365.
-
-    - A constructor with two parameters.
-
-    Modify your test class to test the constructors you have defined.
 
 ### Task 3
 

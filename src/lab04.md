@@ -96,8 +96,6 @@ Sample Output:
 
 ## Extra Activity: Bubble Sort
 
-Write a program that sorts an array of integers using bubble sort.
-
 Bubble sort works by swapping adjacent elements if they are not in the desired order.
 This process repeats from the beginning of the array until all elements are in order.
 

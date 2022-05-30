@@ -99,7 +99,7 @@ public class Example01 {
 Here, we name our `Scanner` object as `input`.
 However you wish to name it is not set in stone, but given proper naming conventions, one should name all objects (and by extension, your class name as well) with the **Pascal Naming Convention**.
 
-Notice that IntelliJ Idea may include an import statement before your class declaration statement (if not, you should manually include this yourself):
+Notice that IntelliJ IDEA may include an import statement before your class declaration statement (if not, you should manually include this yourself):
 
 ```java hl_lines="1" title="Example01.java"
 import java.util.Scanner;

@@ -45,7 +45,7 @@ Scanner input = new Scanner(System.in);
 
 int option = 0;
 do {
-   if(option == 0) {
+   if (option == 0) {
       System.out.println("1.\tAddition");
       System.out.println("2.\tSubtraction");
       System.out.println("3.\tMultiplication");
@@ -55,7 +55,8 @@ do {
    System.out.print("Enter operation >> ");
    option = input.nextInt();
 
-   if(option < 0 || option > 5) System.out.println("Invalid option, try again!\n");
+   if (option < 0 || option > 5)
+      System.out.println("Invalid option, try again!\n");
 } while(option < 0 || option > 5);
 ```
 
@@ -75,7 +76,7 @@ private static int selectOperation() {
 
    int option = 0;
    do {
-      if(option == 0) {
+      if (option == 0) {
          System.out.println("1.\tAddition");
          System.out.println("2.\tSubtraction");
          System.out.println("3.\tMultiplication");
@@ -85,7 +86,8 @@ private static int selectOperation() {
       System.out.print("Enter operation >> ");
       option = input.nextInt();
 
-      if(option < 0 || option > 5) System.out.println("Invalid option, try again!\n");
+      if(option < 0 || option > 5)
+         System.out.println("Invalid option, try again!\n");
    } while(option < 0 || option > 5);
 
    return option;

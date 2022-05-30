@@ -333,15 +333,14 @@ Consider the class diagram given below:
   <figcaption>Employee Superclass with Manager and Clerk Subclasses</figcaption>
 </figure>
 
-1. Implement all the classes as according to the given hierarchy.
+1.  Implement all the classes as according to the given hierarchy.
 
-2. Write a test program that creates an array named `empArray` that stores an object of an Employee, a Manager, and a Clerk.
+2.  Write a test program that creates an array named `empArray` that stores an object of an Employee, a Manager, and a Clerk.<br>
+    In your program, include a method called `printElements()` that takes an array as a parameter and prints the type of employee, the object's data field values (by invoking the `toString()` method) and the monthly salary.
 
-   In your program, include a method called `printElements()` that takes an array as a parameter and prints the type of employee, the object's data field values (by invoking the `toString()` method) and the monthly salary.
-
-3. Override the Object class' `equals()` method in Employee, Manager, and clerk classes.
-   For each class, assume that two objects are considered equal if they have the **_same_** name.
-   Test the `equals()` method on all derived types of Employee.
+3.  Override the Object class' `equals()` method in Employee, Manager, and clerk classes.
+    For each class, assume that two objects are considered equal if they have the **_same_** name.
+    Test the `equals()` method on all derived types of Employee.
 
 ### Task 2
 

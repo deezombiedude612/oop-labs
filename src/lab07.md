@@ -131,7 +131,10 @@ We will now implement the subclasses next.
 
 <!-- Let's assume that the `toString()` method for both -->
 
-We've already established the fact that full-time staff's salary is equal to the base salary + bonus for the month.
+We establish the fact that full-time staff's salary is calculated as follows:
+
+$$ \text{Full-time Staff's Salary} = \text{Base Salary} + \text{Bonus for the month} $$
+
 Let's assume that the `FullTimeStaff` class has a specific method that is used during the calculation of the salary such that the bonus depends on the amount of contribution hours put in.
 Specifically, assume
 

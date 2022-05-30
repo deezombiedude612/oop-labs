@@ -46,7 +46,7 @@ The `rank` attribute follows the same convention as with the `AcademicStaff`'s `
 
 ```java linenums="1" hl_lines="2-3"
 public void setRank(int rank) {
-    if(rank < 1 || rank > 3)
+    if (rank < 1 || rank > 3)
         throw new IllegalArgumentException("Rank must be either 1, 2, or 3!");
 
     this.rank = rank;
@@ -61,7 +61,7 @@ The choice is entirely up to you.
 
 ```java linenums="1" hl_lines="2-3"
 public void setContributionHours(int contributionHours) {
-    if(contributionHours < 0)
+    if (contributionHours < 0)
         throw new IllegalArgumentException("Contribution hours cannot be negative!");
 
     this.contributionHours = contributionHours;
@@ -70,7 +70,7 @@ public void setContributionHours(int contributionHours) {
 
 ```java linenums="1" hl_lines="2-3"
 public void setBaseSalary(int baseSalary) {
-    if(baseSalary < 0)
+    if (baseSalary < 0)
         throw new IllegalArgumentException("Base salary cannot be negative!");
 
     this.baseSalary = baseSalary;
@@ -81,7 +81,7 @@ public void setBaseSalary(int baseSalary) {
 
 ```java linenums="1" hl_lines="2-5"
 public void setContributionHours(int contributionHours) {
-    if(contributionHours < 0)
+    if (contributionHours < 0)
         this.contributionHours = 0;
     else
         this.contributionHours = contributionHours;

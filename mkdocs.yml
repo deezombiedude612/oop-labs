@@ -62,9 +62,8 @@ extra_javascript:
 nav:
   - Home: index.md
   - Guides:
-      - Practical Preparation: lab00.md
+      - Practical Preparation: practical-preparation.md
   - 2022 April:
-      # - lab00.md
       - lab01.md
       - lab02.md
       - lab03.md
@@ -74,6 +73,8 @@ nav:
       - lab07.md
       - lab08.md
       - lab09.md
+      - lab10.md
+      - lab11.md
   - Archive:
       - 2021 August:
           - Home: archive/202108/index.md
