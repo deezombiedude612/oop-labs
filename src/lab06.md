@@ -188,7 +188,7 @@ Sample output for the driver program:
 
         Age on the planet = (age * 365) / travelDays
 
-    The `calculateAverage()` method should receive an argument that represents the age on Earth.
+    The `calculateAge()` method should receive an argument that represents the age on Earth.
     Modify your test class to obtain user input on their age on Earth and test your `calculateAge()` method.
 
     | Planet  | Travel Days |
