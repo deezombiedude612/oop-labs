@@ -2,7 +2,7 @@
 template: base.html
 ---
 
-# Practical 06: Classes and Objects
+# Practical 06: Classes and Objects (Part 1)
 
 We will now begin to implement classes and declare them as objects in this practical session.
 
@@ -15,6 +15,44 @@ However, in object-oriented programming, one has to decompose problems into obje
 One must consider what objects are needed in order for the program to function.
 These objects will contain attributes and methods (i.e., their own functions) to play roles in a program.
 
+!!! note
+
+    Up to this point, you may have ensured that each task is completed within one Java class file.
+    However, going forward for the next few practical exercises, your tasks will necessitate the need to create more than one Java class file per task.
+    If you wish to keep each task work separate rather but not need to create new Java projects each time, consider keeping them in separate packages instead.
+
+## Activity: Object-Oriented Thinking
+
+### Task 1: The `Rectangle` Class
+
+Design a class named Rectangle to represent a rectangle.
+The class should contain:
+
+- Two `double` data fields named `width` and `height` which specify the width and height of the rectangle respectively. The default values are 1 for both width and height.
+- A no-arg constructor that creates a default rectangle.
+- A constructor that creates a rectangle with the specified width and height.
+- A method named `getArea()` that returns the area of the rectangle.
+- A method named getPerimeter() that returns the perimeter of the rectangle.
+
+Draw the UML diagram for the class and then implement the class.
+Write a test program that creates two `Rectangle` objects — one with a width of 4 units and height of 40 units, and the other with a width of 3.5 units and height of 35.9 units.
+Display the width, height, area, and perimeter of each rectangle in this order.
+
+### Task 2: The `Stock` Class
+
+Design a class named `Stock` that contains:
+
+- A `String` data field named `symbol` for the stock's symbol.
+- A `String` data field named `name` for the stock's name.
+- A `double` data field named `previousClosingPrice` that stores the stock price for the previous day.
+- A `double` data field named `currentPrice` that stores the stock price for the current time.
+- A constructor that creates a `Stock` object with the specified symbol and name.
+- A method named `getChangePercent()` that returns the percentage changed from `previousClosingPrice` to `currentPrice`.
+
+Draw the UML diagram for the class and then implement the class.
+Write a test program that creates a `Stock` object with the stock symbol **ORCL**, the name **Oracle Corporation**, and the previous closing price of **34.5**.
+Set the new current price to **34.35** and display the price-change percentage.
+
 ## Tasks
 
 ### Task 1
@@ -26,7 +64,7 @@ And then, create a driver program (save as `TestHousehold.java`) to test the cla
 ```java linenums="1" hl_lines="2-4" title="Household.java"
 public class Household {
    /* attributes here */
-   private int numberOfOccupants;
+   public int numberOfOccupants;
    // declare the annual income attribute here
 
    /* methods here */
@@ -51,12 +89,6 @@ Sample output for the driver program:
     Values have been modified
     Number of occupants: 6
     Annual Income: 25,000.00
-
-!!! note
-
-    Up to this point, you may have ensured that each task is completed within one Java class file.
-    However, going forward for the next few practical exercises, your tasks will necessitate the need to create more than one Java class file per task.
-    If you wish to keep each task work separate rather but not need to create new Java projects each time, consider keeping them in separate packages instead.
 
 1.  Modify the default constructor for the `Household` class to set the occupants field to 1 and annual income field to 0.
     Then, run the driver program again.
@@ -207,37 +239,3 @@ Sample output for the driver program:
         Planet Name: Venus
         Travel Days: 255
         Age on Venus: 28
-
-### Task 3
-
-Create a class based on the following class diagram:
-
-<!-- ```mermaid
-classDiagram
-	class House {
-		- type: String
-		- zone: char
-		- price: double
-		- numberOfBedrooms: int
-		- freehold: boolean
-		+ House()
-		+ House(type: String, price: double, numberOfBedrooms: int)
-		+ House(type: String, zone: char, price: double, numberOfBedrooms: int, freehold: boolean)
-		+ getters and setters
-		+ toString(): String
-	}
-``` -->
-
-![Task 3 Class Diagram](./images/lab06-03.png)
-
-Note:
-
-- Initialize the value of `type` to “Apartment”, `zone` to ‘A’, `price` to 68000.00, `numberOfBedrooms` to 3 and `freehold` to `false` for no-arg constructor.
-- Use the `toString()` method to print out all house details.
-
-1. Create a driver program for the class you just created to test all the available constructors and methods.
-
-   - Create three house objects.
-   - Create an array to store the three house objects.
-
-2. Modify the `House` class by using the `this` keyword to refer to the data member(s) and constructor (if possible).

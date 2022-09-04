@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://deezombiedude612.github.io/oop-labs/lab03/">
       
       <link rel="icon" href="../assets/images/hhicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.14">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
     
     
       
@@ -19,11 +19,12 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.3de6f41f.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.69437709.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.cc9b2e1e.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -39,7 +40,7 @@
     
       <link rel="stylesheet" href="../css/extras.css">
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -555,11 +556,37 @@
     Task 5
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Task 5">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#task-6" class="md-nav__link">
-    Task 6
+  <a href="#challenge_1" class="md-nav__link">
+    Challenge
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challenge-tasks" class="md-nav__link">
+    Challenge Tasks
+  </a>
+  
+    <nav class="md-nav" aria-label="Challenge Tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-task-1" class="md-nav__link">
+    Challenge Task 1
   </a>
   
 </li>
@@ -573,6 +600,62 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab04/" class="md-nav__link">
+        Practical 04: Arrays and ArrayLists
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab05/" class="md-nav__link">
+        Practical 05: Methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab06/" class="md-nav__link">
+        Practical 06: Classes and Objects (Part 1)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab07/" class="md-nav__link">
+        Practical 07: Classes and Objects (Part 2)
+      </a>
     </li>
   
 
@@ -1094,8 +1177,8 @@
 
 <h1 id="practical-03-loop-statements">Practical 03: Loop Statements</h1>
 <p>Loop structures make up the remaining part of program control structures.
-We will be implementing loop structures (i.e., for loop, while loop, do-while loop) in this practical.</p>
-<h2 id="activity-for-loops-vs-while-loops-vs-do-while-loops">Activity: for Loops vs. while Loops vs. do-while Loops</h2>
+We will be implementing loop structures (i.e., <code>for</code> loop, <code>while</code> loop, <code>do-while</code> loop) in this practical.</p>
+<h2 id="activity-for-loops-vs-while-loops-vs-do-while-loops">Activity: <code>for</code> Loops vs. <code>while</code> Loops vs. <code>do-while</code> Loops</h2>
 <p>The following shows a for loop which iterates from 0 to 7, adding each iterated number into a variable called <code>sum</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -1145,48 +1228,52 @@ Farenheit Temperature #2: 67
 67.00 degrees Farenheit is 19.44 degrees Celsius.
 
 Farenheit Temperature #5: 34
-34.00 degrees Farenheit is 1.1 degrees Celsius.
+34.00 degrees Farenheit is 1.11 degrees Celsius.
 
 All Temperatures Processed
 </code></pre></div>
+<div class="admonition hint">
+<p class="admonition-title">Printing double Values in 2 Decimal Places</p>
+<p>The simplest solution to do this is by using the <code>printf()</code> statement.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Example</span><span class="w"></span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%.2f degrees Farenheit is %.2f degrees Celsius.\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">farenheit</span><span class="p">,</span><span class="w"> </span><span class="n">celsius</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p>Another solution for more intricate display formats is by using the <code>DecimalFormat</code> library.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/**</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="cm"> * The last two zeros here forces the output to always be in 2 decimal places regardless</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="cm"> * of whether it has fewer to begin with. (e.g., 2.5 -&gt; 2.50)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="cm"> *</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="cm"> * If you replace both of them with the &#39;#&#39; symbol, it makes it only so that the maximum</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="cm"> * number of decimal places is 2. (e.g., 2.5 will still display as 2.5 and not 2.50)</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="cm"> */</span><span class="w"></span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">String</span><span class="w"> </span><span class="n">stringPattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;#.00&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">DecimalFormat</span><span class="w"> </span><span class="n">df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DecimalFormat</span><span class="p">(</span><span class="n">stringPattern</span><span class="p">);</span><span class="w">    </span><span class="c1">// declare new DecimalFormat object with stringPattern</span><span class="w"></span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="kd">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">df</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">PI</span><span class="p">));</span><span class="w">  </span><span class="c1">// this prints 3.14</span><span class="w"></span>
+</code></pre></div>
+<p>With the <code>DecimalFormat</code> object, you can also place in a string pattern like <code>#,###.00</code> to make it such that a comma is printed to separate the thousands place from the hundreds place.</p>
+</div>
 <h3 id="task-3">Task 3</h3>
 <p>Write a program that prompts the user to enter a 3-digit integer and determines whether it is a palindrome integer.
 An integer is a palindrome if it reads the same from right to left and left to right.
 A negative integer is treated the same as a positive integer.</p>
 <p>Here are sample runs of this program:</p>
 <p><img alt="Task 3 Output" src="../images/lab03-03.png" /></p>
-<h4 id="challenge">Challenge</h4>
-<p>Modify the program to check for 4-digit palindromes.</p>
-<h3 id="task-4">Task 4</h3>
-<p>Write a program that displays the first 50 prime numbers in five lines, each of which contains 10 numbers.
-An integer greater than 1 is prime if its only positive divisor is 1 or itself.
-For example, 2, 3, 5 and 7 are prime numbers, but 4, 6, 8 and 9 are not.</p>
 <details class="hint">
 <summary>Hint</summary>
-<ul>
-<li>
-<p>For each number (2, 3, 4, ...), determine whether a given number is prime.
-    The shortcut is to see if the current number is divsible by any number up to half its value.
-    Once a prime number is found, print out the prime number followed by a space.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// ...</span><span class="w"></span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">divisor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">divisor</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">iter</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="n">divisor</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// shortcut is in here</span><span class="w"></span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="c1">// if current number in iteration is divisible by divisor that&#39;s not 1 or the same number as itself</span><span class="w"></span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">iter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">divisor</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="n">isPrime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1">// ...</span><span class="w"></span>
-</code></pre></div>
-</li>
-<li>
-<p>Have a counter value that counts up to 50 each time a prime number is found.
-    When the counter hits a multiple of 10, print a newline character.
-    When the counter value hits 50, stop the program.</p>
-</li>
-</ul>
+<p>To check for 3-digit palindromes, the middle digit is of no significance.
+Check to see if the first digit and last digit are the same.</p>
 </details>
-<h3 id="task-5">Task 5</h3>
+<h4 id="challenge">Challenge</h4>
+<p>Modify the program to check for 4-digit palindromes.</p>
+<details class="hint">
+<summary>Hint</summary>
+<p>To check for 4-digit palindromes, every digit in the integer is now important.
+You will need to check 2 pairs of digits, one of which is still the first and last digits in the integer.</p>
+<p>What is the other pair?</p>
+</details>
+<h3 id="task-4">Task 4</h3>
 <p>Write a program that reads an integer between 0 and 1000 and adds all the digits in the integer.
 For example, if an integer is 932, the sum of all digits is 14.</p>
 <p>Sample output:</p>
@@ -1198,12 +1285,67 @@ The sum of digits is 27.
 <p>Use the <code>%</code> operator to extract digits and use the <code>/</code> operator to remove the extracted digit.
 For instance, <code>932 % 10 = 2</code> and <code>932 / 10 = 93</code>.</p>
 </details>
-<h3 id="task-6">Task 6</h3>
-<p>Construct a calculator program that takes in 2 integer variables and performs one of the following mathematical operations by choice: addition, subtraction, multiplication, division, and modulo (the remainder function).</p>
+<h3 id="task-5">Task 5</h3>
+<p>Construct a calculator program that takes in 2 integer values and performs one of the following mathematical operations by choice: addition, subtraction, multiplication, division, and modulo (the remainder function).</p>
 <p>Include a <strong>selection menu</strong> to prompt the user to select the desired mathematical operation.</p>
+<p>An example of how your selection menu can look like is as follows:</p>
+<div class="highlight"><pre><span></span><code>=======================
+Calculator Program
+=======================
+
+    1. Addition
+    2. Subtraction
+    3. Multiplication
+    4. Division
+    5. Modulo/Remainder
+
+Select option (1 - 5) &gt;&gt;
+</code></pre></div>
+<h4 id="challenge_1">Challenge</h4>
+<p>Modify your program so that it will keep asking for the mathematical operation followed by 2 integer values until a sentinel value of <strong>-1</strong> is entered during the option selection menu.</p>
+<details class="hint">
+<summary>Hint</summary>
+<p>You'll need a loop structure to keep carrying out the process of asking for what operator and what 2 integer values.
+This loop structure should be based on whether the option value entered is -1 or not.</p>
+<p>How would you implement the option variable in your program in this case?</p>
+</details>
+<h2 id="challenge-tasks">Challenge Tasks</h2>
+<h3 id="challenge-task-1">Challenge Task 1</h3>
+<p>Write a program that displays the first 50 prime numbers in five lines, each of which contains 10 numbers.
+An integer greater than 1 is prime if its only positive divisor is 1 or itself.
+For example, 2, 3, 5 and 7 are prime numbers, but 4, 6, 8 and 9 are not.</p>
+<details class="hint">
+<summary>Hint</summary>
+<ul>
+<li>
+<p>For each number (2, 3, 4, ...), determine whether a given number is prime.
+    The shortcut is to see if the current number is divsible by any number up to half its value.
+    Once a prime number is found, print out the prime number followed by a space.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// ...</span><span class="w"></span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">divisor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">divisor</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">iter</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"> </span><span class="n">divisor</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">    </span><span class="c1">// shortcut is in here</span><span class="w"></span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="c1">// if current number in iteration is divisible by divisor that&#39;s not 1 or the same number as itself</span><span class="w"></span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">iter</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">divisor</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="n">isPrime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1">// ...</span><span class="w"></span>
+</code></pre></div>
+</li>
+<li>
+<p>Have a counter value that counts up to 50 each time a prime number is found.
+    When the counter hits a multiple of 10, print a newline character.
+    When the counter value hits 50, stop the program.</p>
+</li>
+</ul>
+</details>
+
+
+
 
               
             </article>
+            
           </div>
         </div>
         
@@ -1211,7 +1353,8 @@ For instance, <code>932 % 10 = 2</code> and <code>932 / 10 = 93</code>.</p>
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
         <a href="../lab02/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Practical 02: Selection Statements" rel="prev">
@@ -1230,13 +1373,13 @@ For instance, <code>932 % 10 = 2</code> and <code>932 / 10 = 93</code>.</p>
       
       
         
-        <a href="../archive/202204/" class="md-footer__link md-footer__link--next" aria-label="Next: Home" rel="next">
+        <a href="../lab04/" class="md-footer__link md-footer__link--next" aria-label="Next: Practical 04: Arrays and ArrayLists" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Home
+              Practical 04: Arrays and ArrayLists
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1267,13 +1410,13 @@ For instance, <code>932 % 10 = 2</code> and <code>932 / 10 = 93</code>.</p>
     
     
     <a href="https://twitter.com/deezombiedude" target="_blank" rel="noopener" title="deezombiedude on Twitter" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
     </a>
   
     
     
     <a href="https://github.com/deezombiedude612" target="_blank" rel="noopener" title="deezombiedude612 on GitHub" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
     </a>
   
 </div>
@@ -1286,10 +1429,11 @@ For instance, <code>932 % 10 = 2</code> and <code>932 / 10 = 93</code>.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.c2e1ee47.min.js"></script>
+      <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
       
         <script src="../js/mathjax.js"></script>
       

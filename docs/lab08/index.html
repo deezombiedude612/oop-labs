@@ -11,19 +11,20 @@
         <link rel="canonical" href="https://deezombiedude612.github.io/oop-labs/lab08/">
       
       <link rel="icon" href="../assets/images/hhicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.14">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
     
     
       
-        <title>Practical 08: Polymorphism - ITS42004 OOP Labs</title>
+        <title>Practical 08: Inheritance - ITS42004 OOP Labs</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.3de6f41f.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.69437709.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.cc9b2e1e.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
         
+      
       
     
     
@@ -39,7 +40,7 @@
     
       <link rel="stylesheet" href="../css/extras.css">
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -67,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#practical-08-polymorphism" class="md-skip">
+        <a href="#practical-08-inheritance" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Practical 08: Polymorphism
+              Practical 08: Inheritance
             
           </span>
         </div>
@@ -459,6 +460,62 @@
     <li class="md-nav__item">
       <a href="../lab03/" class="md-nav__link">
         Practical 03: Loop Statements
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab04/" class="md-nav__link">
+        Practical 04: Arrays and ArrayLists
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab05/" class="md-nav__link">
+        Practical 05: Methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab06/" class="md-nav__link">
+        Practical 06: Classes and Objects (Part 1)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab07/" class="md-nav__link">
+        Practical 07: Classes and Objects (Part 2)
       </a>
     </li>
   
@@ -979,20 +1036,51 @@
                 
 
 
-<h1 id="practical-08-polymorphism">Practical 08: Polymorphism</h1>
-<p>Polymorphism is another key concept in object-oriented programming.
-It refers to the capability of objects to react differently to the same method.
-Polymorphism can be implemented in the form of multiple methods having the same name.
-Java code uses a late-binding technique to support polymorphism; the method to be invoked is decided at runtime.</p>
-<h2 id="activity-overloading-methods-vs-overriding-methods">Activity: Overloading Methods vs. Overriding Methods</h2>
-<p><strong>Overloaded</strong> methods are methods that have the same name, but different argument lists.
-<strong>Overriding</strong>, on the other hand, occurs when a subclass method has the same name, same return type, and same argument list as the superclass method.</p>
-<h3 id="overloading-methods">Overloading Methods</h3>
-<p>One example of overloading methods that we have already covered during lecture when we first began going through classes and objects is through the use of multiple constructors.
-Going back to the previous activity, let's look at the <code>FullTimeStaff</code> class.
-Here, let's assume that if <code>baseSalary</code> isn't specified, it will be determined immediately by the <code>rank</code> entered.</p>
-<p>We'll now create a separate constructor method that takes in the same parameters, except <code>baseSalary</code> is excluded from this list.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">FullTimeStaff.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<h1 id="practical-08-inheritance">Practical 08: Inheritance</h1>
+<p>Inheritance is one of the key concepts in object-oriented programming.
+With it, one can group similar elements (i.e., attributes and/or methods) of a group of classes and stash them in a superclass/parent class.
+The separate classes (now subclasses/child classes) will inherit these similar elements while having their own unique elements that make them different from the other fellow subclasses.</p>
+<h2 id="activity-implementing-is-a-relationships">Activity: Implementing "IS-A" Relationships</h2>
+<p>Inheritance defines relationships between classes, the "IS-A" relationship type in particular.</p>
+<h3 id="illustration-example">Illustration Example</h3>
+<p>To illustrate this, let's compare two different groups of academic staff in Taylor's College, namely the full-time staff and part-time staff.
+Here, we are implying the following:</p>
+<ul>
+<li>A full-time academic staff member "<strong>IS-A</strong>" academic staff.</li>
+<li>A part-time academic staff member "<strong>IS-A</strong>" academic staff.</li>
+</ul>
+<p>Ignore the grammatical error, the idea's to show relations between these superclass and subclasses. 😝</p>
+<p>On a base level, every academic staff has common attributes including:</p>
+<ul>
+<li>full name (<code>fullName</code>)</li>
+<li>staff ID (<code>id</code>)</li>
+<li>qualification level (assume 1 stands for Bachelor, 2 stands for Masters, and 3 stands for PhD) (<code>qualificationLevel</code>)</li>
+</ul>
+<p>Now let's compare some differences between the two types of staff:</p>
+<ul>
+<li>Full time academic staff can have two types of rankings: Lecturer, Senior Lecturer, Head of Department.
+  Let's assume 1 stands for the Lecturer rank, and 2 stands for Senior Lecturer, and 3 stands for Head of Department.
+  We will call this value <code>rank</code>.</li>
+</ul>
+<p>Part-time academic staff do not have a ranking to climb.</p>
+<ul>
+<li>Full-time academic staff are required to contribute hours either into the research field or undergo trainings.
+  For now, let's assume the hours spent on these duties stack together with each other.
+  We will call this value <code>contributionHours</code>.</li>
+</ul>
+<p>Let's also assume that part-time academic staff, on the other hand, are not expected to offer such contributions to the College.</p>
+<ul>
+<li>Part-time staff work on an hourly wage rate (<code>hourlyRate</code>).
+  The salary amount paid to part-time staff is dependent on the product of their hourly wage rate and the number of hours worked.</li>
+</ul>
+<p>Full-time staff, on the other hand, are paid a baseline salary amount (<code>baseSalary</code>), plus any bonus received.</p>
+<h3 id="implementing-the-idea">Implementing the Idea</h3>
+<h4 id="academicstaffjava">AcademicStaff.java</h4>
+<p>We begin by implementing the superclass first; name it <code>AcademicStaff</code>.</p>
+<p>Let's assume that the <code>AcademicStaff</code> class also has 3 methods: <code>toString()</code>, <code>printStaff()</code> and <code>calculateSalary()</code>.
+For now, we will say that <code>calculateSalary()</code> will immediately return 0 from a generic AcademicStaff object.
+We will also implement <code>toString()</code> as a method that returns a String - the reason for this will be explained when we touch on Polymorphism next week.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">AcademicStaff.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
@@ -1033,52 +1121,106 @@ Here, let's assume that if <code>baseSalary</code> isn't specified, it will be d
 <span class="normal"><a href="#__codelineno-0-39">39</a></span>
 <span class="normal"><a href="#__codelineno-0-40">40</a></span>
 <span class="normal"><a href="#__codelineno-0-41">41</a></span>
-<span class="normal"><a href="#__codelineno-0-42">42</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FullTimeStaff</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AcademicStaff</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">rank</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">contributionHours</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">baseSalary</span><span class="p">;</span><span class="w"></span>
+<span class="normal"><a href="#__codelineno-0-42">42</a></span>
+<span class="normal"><a href="#__codelineno-0-43">43</a></span>
+<span class="normal"><a href="#__codelineno-0-44">44</a></span>
+<span class="normal"><a href="#__codelineno-0-45">45</a></span>
+<span class="normal"><a href="#__codelineno-0-46">46</a></span>
+<span class="normal"><a href="#__codelineno-0-47">47</a></span>
+<span class="normal"><a href="#__codelineno-0-48">48</a></span>
+<span class="normal"><a href="#__codelineno-0-49">49</a></span>
+<span class="normal"><a href="#__codelineno-0-50">50</a></span>
+<span class="normal"><a href="#__codelineno-0-51">51</a></span>
+<span class="normal"><a href="#__codelineno-0-52">52</a></span>
+<span class="normal"><a href="#__codelineno-0-53">53</a></span>
+<span class="normal"><a href="#__codelineno-0-54">54</a></span>
+<span class="normal"><a href="#__codelineno-0-55">55</a></span>
+<span class="normal"><a href="#__codelineno-0-56">56</a></span>
+<span class="normal"><a href="#__codelineno-0-57">57</a></span>
+<span class="normal"><a href="#__codelineno-0-58">58</a></span>
+<span class="normal"><a href="#__codelineno-0-59">59</a></span>
+<span class="normal"><a href="#__codelineno-0-60">60</a></span>
+<span class="normal"><a href="#__codelineno-0-61">61</a></span>
+<span class="normal"><a href="#__codelineno-0-62">62</a></span>
+<span class="normal"><a href="#__codelineno-0-63">63</a></span>
+<span class="normal"><a href="#__codelineno-0-64">64</a></span>
+<span class="normal"><a href="#__codelineno-0-65">65</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AcademicStaff</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">fullName</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">;</span><span class="w"></span>
 <a id="__codelineno-0-5" name="__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="c1">// Constructors</span><span class="w"></span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">FullTimeStaff</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">                         </span><span class="kt">int</span><span class="w"> </span><span class="n">rank</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">contributionHours</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">baseSalary</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">        </span><span class="c1">// calls the superclass&#39; constructor</span><span class="w"></span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">rank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rank</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">contributionHours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">contributionHours</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">baseSalary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">baseSalary</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="hll"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">FullTimeStaff</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">,</span><span class="w"></span>
-</span><a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="hll"><span class="w">                         </span><span class="kt">int</span><span class="w"> </span><span class="n">rank</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">contributionHours</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-</span><a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="hll"><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">);</span><span class="w"></span>
-</span><a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="hll"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">rank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rank</span><span class="p">;</span><span class="w"></span>
-</span><a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="hll"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">contributionHours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">contributionHours</span><span class="p">;</span><span class="w"></span>
-</span><a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="hll">
-</span><a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="hll"><span class="w">        </span><span class="k">switch</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">rank</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-</span><a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="hll"><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w"></span>
-</span><a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="hll"><span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="na">baseSalary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span><span class="p">;</span><span class="w"></span>
-</span><a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="hll"><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-</span><a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="hll">
-</span><a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="hll"><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span><span class="w"></span>
-</span><a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="hll"><span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="na">baseSalary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2500</span><span class="p">;</span><span class="w"></span>
-</span><a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="hll"><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-</span><a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="hll">
-</span><a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="hll"><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="mi">3</span><span class="p">:</span><span class="w"></span>
-</span><a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="hll"><span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="na">baseSalary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3000</span><span class="p">;</span><span class="w"></span>
-</span><a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="hll"><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-</span><a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="hll">
-</span><a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="hll"><span class="w">            </span><span class="k">default</span><span class="p">:</span><span class="w"></span>
-</span><a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="hll"><span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="na">baseSalary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-</span><a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="hll"><span class="w">        </span><span class="p">}</span><span class="w"></span>
-</span><a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="hll"><span class="w">    </span><span class="p">}</span><span class="w"></span>
-</span><a id="__codelineno-0-40" name="__codelineno-0-40"></a>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="w">    </span><span class="cm">/* ... */</span><span class="w"></span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="c1">// Constructor</span><span class="w"></span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">AcademicStaff</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">fullName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fullName</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">qualificationLevel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">    </span><span class="c1">// Accessor and Mutator Methods</span><span class="w"></span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getFullName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">fullName</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getId</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getQualificationLevel</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setFullName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">fullName</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">fullName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fullName</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setId</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setQualificationLevel</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">qualificationLevel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">qualification</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">        </span><span class="k">switch</span><span class="p">(</span><span class="n">qualificationLevel</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">                </span><span class="n">qualification</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Bachelor&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">                </span><span class="n">qualification</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Master&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="mi">3</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="w">                </span><span class="n">qualification</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Doctorate&quot;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">            </span><span class="k">default</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">        </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Full Name: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fullName</span><span class="w"></span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="w">                </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\nStaff ID: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">id</span><span class="w"></span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="w">                </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\nQualification Type: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">qualification</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">printStaff</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span><span class="w"></span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">calculateSalary</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<p>We can do the same with the <code>PartTimeStaff</code> class, but with <code>hoursWorked</code> undefined.
-In this case, <code>hoursWorked</code> to 0 if unspecified.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">PartTimeStaff.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<p>We will now implement the subclasses next.</p>
+<h4 id="fulltimestaffjava">FullTimeStaff.java</h4>
+<!-- Let's assume that the `toString()` method for both -->
+
+<p>We establish the fact that full-time staff's salary is calculated as follows:</p>
+<div class="arithmatex">\[ \text{Full-time Staff's Salary} = \text{Base Salary} + \text{Bonus for the month} \]</div>
+<p>Let's assume that the <code>FullTimeStaff</code> class has a specific method that is used during the calculation of the salary such that the bonus depends on the amount of contribution hours put in.
+Specifically, assume</p>
+<div class="arithmatex">\[ \text{Bonus Received} = \$(\text{Number of contribution hours} \times 100 ) \]</div>
+<p>We will call this method <code>getBonus()</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">FullTimeStaff.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
@@ -1098,31 +1240,56 @@ In this case, <code>hoursWorked</code> to 0 if unspecified.</p>
 <span class="normal"><a href="#__codelineno-1-18">18</a></span>
 <span class="normal"><a href="#__codelineno-1-19">19</a></span>
 <span class="normal"><a href="#__codelineno-1-20">20</a></span>
-<span class="normal"><a href="#__codelineno-1-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PartTimeStaff</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AcademicStaff</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">hourlyRate</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hoursWorked</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="c1">// Constructors</span><span class="w"></span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">PartTimeStaff</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">                         </span><span class="kt">double</span><span class="w"> </span><span class="n">hourlyRate</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hoursWorked</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">hourlyRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hourlyRate</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">hoursWorked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hoursWorked</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="hll"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">PartTimeStaff</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">,</span><span class="w"></span>
-</span><a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="hll"><span class="w">                         </span><span class="kt">double</span><span class="w"> </span><span class="n">hourlyRate</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-</span><a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="hll"><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">);</span><span class="w"></span>
-</span><a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="hll"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">hourlyRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hourlyRate</span><span class="p">;</span><span class="w"></span>
-</span><a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="hll"><span class="w">        </span><span class="n">hoursWorked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-</span><a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="hll"><span class="w">    </span><span class="p">}</span><span class="w"></span>
-</span><a id="__codelineno-1-19" name="__codelineno-1-19"></a>
-<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">    </span><span class="cm">/* ... */</span><span class="w"></span>
-<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="p">}</span><span class="w"></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span>
+<span class="normal"><a href="#__codelineno-1-26">26</a></span>
+<span class="normal"><a href="#__codelineno-1-27">27</a></span>
+<span class="normal"><a href="#__codelineno-1-28">28</a></span>
+<span class="normal"><a href="#__codelineno-1-29">29</a></span>
+<span class="normal"><a href="#__codelineno-1-30">30</a></span>
+<span class="normal"><a href="#__codelineno-1-31">31</a></span>
+<span class="normal"><a href="#__codelineno-1-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FullTimeStaff</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AcademicStaff</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">rank</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">contributionHours</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">baseSalary</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="c1">// Constructor</span><span class="w"></span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">FullTimeStaff</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">                         </span><span class="kt">int</span><span class="w"> </span><span class="n">rank</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">contributionHours</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">baseSalary</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">        </span><span class="c1">// calls the superclass&#39; constructor</span><span class="w"></span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">rank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rank</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">contributionHours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">contributionHours</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">baseSalary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">baseSalary</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">    </span><span class="c1">// Accessor and Mutator Methods</span><span class="w"></span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getRank</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">rank</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getContributionHours</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">contributionHours</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getBaseSalary</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">baseSalary</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setRank</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">rank</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">rank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rank</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setContributionHours</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">contributionHours</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">contributionHours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">contributionHours</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setBaseSalary</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">baseSalary</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">baseSalary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">baseSalary</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a>
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="w">    </span><span class="c1">// Determines bonus amount</span><span class="w"></span>
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getBonus</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">contributionHours</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<p>Overloading methods isn't just restricted to constructors; this can be applied from a procedural programming standpoint.
-Let's assume that this class has two methods that print out the area of a shape given two different sets of parameters.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Shape.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<p>Recall that in order for a subclass to be able to call a method or constructor belonging to the superclass, you will need to use the <code>super</code> keyword.</p>
+<h4 id="parttimestaffjava">PartTimeStaff.java</h4>
+<p>There are also some specifics for the part-time staff.
+Let's assume that one may add hours the number of hours worked in addition to the number of hours already being worked on.
+We'll name this method <code>addHoursWorked()</code>, which takes in one parameter value called <code>additionalHours</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">PartTimeStaff.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
@@ -1134,26 +1301,58 @@ Let's assume that this class has two methods that print out the area of a shape 
 <span class="normal"><a href="#__codelineno-2-10">10</a></span>
 <span class="normal"><a href="#__codelineno-2-11">11</a></span>
 <span class="normal"><a href="#__codelineno-2-12">12</a></span>
-<span class="normal"><a href="#__codelineno-2-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Shape</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="c1">// Get area of quadrilateral</span><span class="w"></span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getArea</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">height</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">height</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="c1">// Get area of circle</span><span class="w"></span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getArea</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-2-11" name="__codelineno-2-11"></a>
-<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">    </span><span class="cm">/* ... */</span><span class="w"></span>
-<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="p">}</span><span class="w"></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span>
+<span class="normal"><a href="#__codelineno-2-21">21</a></span>
+<span class="normal"><a href="#__codelineno-2-22">22</a></span>
+<span class="normal"><a href="#__codelineno-2-23">23</a></span>
+<span class="normal"><a href="#__codelineno-2-24">24</a></span>
+<span class="normal"><a href="#__codelineno-2-25">25</a></span>
+<span class="normal"><a href="#__codelineno-2-26">26</a></span>
+<span class="normal"><a href="#__codelineno-2-27">27</a></span>
+<span class="normal"><a href="#__codelineno-2-28">28</a></span>
+<span class="normal"><a href="#__codelineno-2-29">29</a></span>
+<span class="normal"><a href="#__codelineno-2-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PartTimeStaff</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AcademicStaff</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">hourlyRate</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hoursWorked</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="c1">// Constructor</span><span class="w"></span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">PartTimeStaff</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">                         </span><span class="kt">double</span><span class="w"> </span><span class="n">hourlyRate</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hoursWorked</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">        </span><span class="c1">// calls the superclass&#39; constructor</span><span class="w"></span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">hourlyRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hourlyRate</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">hoursWorked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hoursWorked</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">    </span><span class="c1">// Accessor and Mutator Methods</span><span class="w"></span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getHourlyRate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">hourlyRate</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getHoursWorked</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">hoursWorked</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setHourlyRate</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">hourlyRate</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">hourlyRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hourlyRate</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setHoursWorked</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">hoursWorked</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">hoursWorked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hoursWorked</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-25" name="__codelineno-2-25"></a>
+<a id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="w">    </span><span class="c1">// Add hours worked</span><span class="w"></span>
+<a id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addHoursWorked</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">additionalHours</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-28" name="__codelineno-2-28"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">hoursWorked</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">additionalHours</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<p>The key idea behind overloading methods is to have methods of the <strong>same name, but different argument lists</strong>.
-Here, depending on whether one double value or two double values are entered, you get two different methods of calculating the area of the shape.
-Overloading methods is also not restricted by the return type being used.
-For example, one may create a <code>getArea()</code> method that returns an integer value based on yet another argument list.
-The number of times a method is overloaded is not restricted as well, but ensure not to have ambiguous parameter lists like as follows:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Shape.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<h4 id="driver-program">Driver Program</h4>
+<p>Let's create a separate class acting as the driver class which will contain the main method.</p>
+<p>We can create objects of each subclass like as follows:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Driver.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
@@ -1163,343 +1362,48 @@ The number of times a method is overloaded is not restricted as well, but ensure
 <span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-3-10">10</a></span>
-<span class="normal"><a href="#__codelineno-3-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Shape</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getArea</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">height</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">        </span><span class="cm">/* ... */</span><span class="w"></span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Driver</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">        </span><span class="n">FullTimeStaff</span><span class="w"> </span><span class="n">staff1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FullTimeStaff</span><span class="p">(</span><span class="s">&quot;Horace Diaz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ABC123&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">3000</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">staff1</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span><span class="w"></span>
 <a id="__codelineno-3-5" name="__codelineno-3-5"></a>
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getArea</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dimension</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">        </span><span class="cm">/* ... */</span><span class="w"></span>
-<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-3-9" name="__codelineno-3-9"></a>
-<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">    </span><span class="cm">/* ... */</span><span class="w"></span>
-<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">        </span><span class="n">PartTimeStaff</span><span class="w"> </span><span class="n">staff2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PartTimeStaff</span><span class="p">(</span><span class="s">&quot;Ivan Lam&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;XYZ787&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">125</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">staff2</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span><span class="w"></span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;(Staff2) Hours worked: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">staff2</span><span class="p">.</span><span class="na">getHoursWorked</span><span class="p">());</span><span class="w"></span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">        </span><span class="n">staff2</span><span class="p">.</span><span class="na">addHoursWorked</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;(Staff2) Hours worked: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">staff2</span><span class="p">.</span><span class="na">getHoursWorked</span><span class="p">());</span><span class="w"></span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<p>Here, the compiler does not know which method to use when invoked with a parameter list where the second number can be interpreted as either an integer or double.</p>
-<h3 id="overriding-methods">Overriding Methods</h3>
-<p>Overriding methods involve having methods of the same name, return type, and argument list between superclass and subclass.</p>
-<p>Going back to last week's activity again, we will now override the <code>toString()</code> and <code>calculateSalary()</code> methods of both subclasses.</p>
-<h4 id="fulltimestaffjava">FullTimeStaff.java</h4>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">FullTimeStaff.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-4-10">10</a></span>
-<span class="normal"><a href="#__codelineno-4-11">11</a></span>
-<span class="normal"><a href="#__codelineno-4-12">12</a></span>
-<span class="normal"><a href="#__codelineno-4-13">13</a></span>
-<span class="normal"><a href="#__codelineno-4-14">14</a></span>
-<span class="normal"><a href="#__codelineno-4-15">15</a></span>
-<span class="normal"><a href="#__codelineno-4-16">16</a></span>
-<span class="normal"><a href="#__codelineno-4-17">17</a></span>
-<span class="normal"><a href="#__codelineno-4-18">18</a></span>
-<span class="normal"><a href="#__codelineno-4-19">19</a></span>
-<span class="normal"><a href="#__codelineno-4-20">20</a></span>
-<span class="normal"><a href="#__codelineno-4-21">21</a></span>
-<span class="normal"><a href="#__codelineno-4-22">22</a></span>
-<span class="normal"><a href="#__codelineno-4-23">23</a></span>
-<span class="normal"><a href="#__codelineno-4-24">24</a></span>
-<span class="normal"><a href="#__codelineno-4-25">25</a></span>
-<span class="normal"><a href="#__codelineno-4-26">26</a></span>
-<span class="normal"><a href="#__codelineno-4-27">27</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FullTimeStaff</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AcademicStaff</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="cm">/* ... */</span><span class="w"></span>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a>
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="hll"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">calculateSalary</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">baseSalary</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">getBonus</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-</span><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="hll">
-</span><a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="hll"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-</span><a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="hll"><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">rankName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span><span class="w"></span>
-</span><a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="hll"><span class="w">        </span><span class="k">switch</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-</span><a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="hll"><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w"></span>
-</span><a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="hll"><span class="w">                </span><span class="n">rankName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Lecturer&quot;</span><span class="p">;</span><span class="w"></span>
-</span><a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="hll"><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-</span><a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="hll">
-</span><a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="hll"><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span><span class="w"></span>
-</span><a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="hll"><span class="w">                </span><span class="n">rankName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Senior Lecturer&quot;</span><span class="p">;</span><span class="w"></span>
-</span><a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="hll"><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-</span><a id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="hll">
-</span><a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="hll"><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="mi">3</span><span class="p">:</span><span class="w"></span>
-</span><a id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="hll"><span class="w">                </span><span class="n">rankName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Professor&quot;</span><span class="p">;</span><span class="w"></span>
-</span><a id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="hll"><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-</span><a id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="hll">
-</span><a id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="hll"><span class="w">            </span><span class="k">default</span><span class="p">:</span><span class="w"></span>
-</span><a id="__codelineno-4-22" name="__codelineno-4-22"></a><span class="hll"><span class="w">        </span><span class="p">}</span><span class="w"></span>
-</span><a id="__codelineno-4-23" name="__codelineno-4-23"></a><span class="hll">
-</span><a id="__codelineno-4-24" name="__codelineno-4-24"></a><span class="hll"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kd">super</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span><span class="w"></span>
-</span><a id="__codelineno-4-25" name="__codelineno-4-25"></a><span class="hll"><span class="w">                </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\nStaff Rank: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rankName</span><span class="p">;</span><span class="w"></span>
-</span><a id="__codelineno-4-26" name="__codelineno-4-26"></a><span class="hll"><span class="w">    </span><span class="p">}</span><span class="w"></span>
-</span><a id="__codelineno-4-27" name="__codelineno-4-27"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div></td></tr></table></div>
-<h4 id="parttimestaffjava">PartTimeStaff.java</h4>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">PartTimeStaff.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-5-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PartTimeStaff</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AcademicStaff</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="cm">/* ... */</span><span class="w"></span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="hll"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">calculateSalary</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">hourlyRate</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">hoursWorked</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-</span><a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="hll">
-</span><a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="hll"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-</span><a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="hll"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kd">super</span><span class="p">.</span><span class="na">toString</span><span class="p">()</span><span class="w"></span>
-</span><a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="hll"><span class="w">                </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\nStaff Rank: Part-Time Lecturer&quot;</span><span class="p">;</span><span class="w"></span>
-</span><a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="hll"><span class="w">    </span><span class="p">}</span><span class="w"></span>
-</span><a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div></td></tr></table></div>
-<p>In this example, we have already overriden <code>toString()</code> twice, once between the superclass and subclass we have just created, and the other via overriding from the <code>Object</code> class.
-In Java, all classes are considered subclasses of the <code>Object</code> class, which in turn, is the superclass of just about any class that exists in Java and any class you create.
-Java's <code>Object</code> class contains the <code>toString()</code> method by default, which prints out the memory address the object is taking up.
-This is not particularly helpful to us as regular users who pay no regard to where about the object is specifically being stored in the computer's memory.</p>
-<p>Making the following modifications to the main method in the driver class will render the following output:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Driver.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-6-10">10</a></span>
-<span class="normal"><a href="#__codelineno-6-11">11</a></span>
-<span class="normal"><a href="#__codelineno-6-12">12</a></span>
-<span class="normal"><a href="#__codelineno-6-13">13</a></span>
-<span class="normal"><a href="#__codelineno-6-14">14</a></span>
-<span class="normal"><a href="#__codelineno-6-15">15</a></span>
-<span class="normal"><a href="#__codelineno-6-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Driver</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">        </span><span class="n">FullTimeStaff</span><span class="w"> </span><span class="n">staff1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FullTimeStaff</span><span class="p">(</span><span class="s">&quot;Horace Diaz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ABC123&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">3000</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">staff1</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span><span class="w"></span>
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;(Staff1) Salary: $ %.2f&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">staff1</span><span class="p">.</span><span class="na">calculateSalary</span><span class="p">());</span><span class="w"></span>
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a>
-<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-6-8" name="__codelineno-6-8"></a>
-<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">        </span><span class="n">PartTimeStaff</span><span class="w"> </span><span class="n">staff2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PartTimeStaff</span><span class="p">(</span><span class="s">&quot;Ivan Lam&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;XYZ787&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">125</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">staff2</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span><span class="w"></span>
-<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;(Staff2) Hours worked: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">staff2</span><span class="p">.</span><span class="na">getHoursWorked</span><span class="p">());</span><span class="w"></span>
-<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">        </span><span class="n">staff2</span><span class="p">.</span><span class="na">addHoursWorked</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;(Staff2) Hours worked: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">staff2</span><span class="p">.</span><span class="na">getHoursWorked</span><span class="p">());</span><span class="w"></span>
-<a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;(Staff2) Salary: $ %.2f&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">staff1</span><span class="p">.</span><span class="na">calculateSalary</span><span class="p">());</span><span class="w"></span>
-<a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div></td></tr></table></div>
+<p>At the end of this activity, you should be able to implement inheritance in your program.
+However, we are not done with this program just yet.
+There are still the calculation of salary still displaying 0 if the respective method is called, and each of the subclass' <code>toString()</code> methods does not show any difference.</p>
 <p>Output:</p>
 <div class="highlight"><pre><span></span><code>Full Name: Horace Diaz
 Staff ID: ABC123
 Qualification Type: Doctorate
-Staff Rank: Professor
-(Staff1) Salary: $ 4000.00
 
 Full Name: Ivan Lam
 Staff ID: XYZ787
 Qualification Type: Master
-Staff Rank: Part-Time Lecturer
 (Staff2) Hours worked: 20
 (Staff2) Hours worked: 25
-(Staff2) Salary: $ 3125.00
 </code></pre></div>
-<h2 id="optional-activity-subtype-polymorphism">Optional Activity: Subtype Polymorphism</h2>
-<p>Subtype polymorphism (also known as subtyping or inclusion polymorphism) is a type of polymorphism in which an object can change its class based on its base class (superclass).
-Provided that the declaration is done using the object’s base class, the object can substitute its class with any classes that are subclasses of that superclass.</p>
-<p>In our example, let's create yet another constructor in each of the subclasses to simulate a promotion/demotion act between full-time and part-time statuses.</p>
-<h3 id="fulltimestaffjava_1">FullTimeStaff.java</h3>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">FullTimeStaff.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-7-10">10</a></span>
-<span class="normal"><a href="#__codelineno-7-11">11</a></span>
-<span class="normal"><a href="#__codelineno-7-12">12</a></span>
-<span class="normal"><a href="#__codelineno-7-13">13</a></span>
-<span class="normal"><a href="#__codelineno-7-14">14</a></span>
-<span class="normal"><a href="#__codelineno-7-15">15</a></span>
-<span class="normal"><a href="#__codelineno-7-16">16</a></span>
-<span class="normal"><a href="#__codelineno-7-17">17</a></span>
-<span class="normal"><a href="#__codelineno-7-18">18</a></span>
-<span class="normal"><a href="#__codelineno-7-19">19</a></span>
-<span class="normal"><a href="#__codelineno-7-20">20</a></span>
-<span class="normal"><a href="#__codelineno-7-21">21</a></span>
-<span class="normal"><a href="#__codelineno-7-22">22</a></span>
-<span class="normal"><a href="#__codelineno-7-23">23</a></span>
-<span class="normal"><a href="#__codelineno-7-24">24</a></span>
-<span class="normal"><a href="#__codelineno-7-25">25</a></span>
-<span class="normal"><a href="#__codelineno-7-26">26</a></span>
-<span class="normal"><a href="#__codelineno-7-27">27</a></span>
-<span class="normal"><a href="#__codelineno-7-28">28</a></span>
-<span class="normal"><a href="#__codelineno-7-29">29</a></span>
-<span class="normal"><a href="#__codelineno-7-30">30</a></span>
-<span class="normal"><a href="#__codelineno-7-31">31</a></span>
-<span class="normal"><a href="#__codelineno-7-32">32</a></span>
-<span class="normal"><a href="#__codelineno-7-33">33</a></span>
-<span class="normal"><a href="#__codelineno-7-34">34</a></span>
-<span class="normal"><a href="#__codelineno-7-35">35</a></span>
-<span class="normal"><a href="#__codelineno-7-36">36</a></span>
-<span class="normal"><a href="#__codelineno-7-37">37</a></span>
-<span class="normal"><a href="#__codelineno-7-38">38</a></span>
-<span class="normal"><a href="#__codelineno-7-39">39</a></span>
-<span class="normal"><a href="#__codelineno-7-40">40</a></span>
-<span class="normal"><a href="#__codelineno-7-41">41</a></span>
-<span class="normal"><a href="#__codelineno-7-42">42</a></span>
-<span class="normal"><a href="#__codelineno-7-43">43</a></span>
-<span class="normal"><a href="#__codelineno-7-44">44</a></span>
-<span class="normal"><a href="#__codelineno-7-45">45</a></span>
-<span class="normal"><a href="#__codelineno-7-46">46</a></span>
-<span class="normal"><a href="#__codelineno-7-47">47</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FullTimeStaff</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AcademicStaff</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">rank</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">contributionHours</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">baseSalary</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a>
-<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="c1">// Constructors</span><span class="w"></span>
-<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">FullTimeStaff</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">                         </span><span class="kt">int</span><span class="w"> </span><span class="n">rank</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">contributionHours</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">baseSalary</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">        </span><span class="c1">// calls the superclass&#39; constructor</span><span class="w"></span>
-<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-7-11" name="__codelineno-7-11"></a>
-<a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">rank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rank</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">contributionHours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">contributionHours</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">baseSalary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">baseSalary</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-7-16" name="__codelineno-7-16"></a>
-<a id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">FullTimeStaff</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-7-18" name="__codelineno-7-18"></a><span class="w">                         </span><span class="kt">int</span><span class="w"> </span><span class="n">rank</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">contributionHours</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">rank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rank</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-7-21" name="__codelineno-7-21"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">contributionHours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">contributionHours</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-7-22" name="__codelineno-7-22"></a>
-<a id="__codelineno-7-23" name="__codelineno-7-23"></a><span class="w">        </span><span class="k">switch</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">rank</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-7-24" name="__codelineno-7-24"></a><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-7-25" name="__codelineno-7-25"></a><span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="na">baseSalary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-7-26" name="__codelineno-7-26"></a><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-7-27" name="__codelineno-7-27"></a>
-<a id="__codelineno-7-28" name="__codelineno-7-28"></a><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-7-29" name="__codelineno-7-29"></a><span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="na">baseSalary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2500</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-7-30" name="__codelineno-7-30"></a><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-7-31" name="__codelineno-7-31"></a>
-<a id="__codelineno-7-32" name="__codelineno-7-32"></a><span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="mi">3</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-7-33" name="__codelineno-7-33"></a><span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="na">baseSalary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3000</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-7-34" name="__codelineno-7-34"></a><span class="w">                </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-7-35" name="__codelineno-7-35"></a>
-<a id="__codelineno-7-36" name="__codelineno-7-36"></a><span class="w">            </span><span class="k">default</span><span class="p">:</span><span class="w"></span>
-<a id="__codelineno-7-37" name="__codelineno-7-37"></a><span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="na">baseSalary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-7-38" name="__codelineno-7-38"></a><span class="w">        </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-7-39" name="__codelineno-7-39"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-7-40" name="__codelineno-7-40"></a>
-<a id="__codelineno-7-41" name="__codelineno-7-41"></a><span class="hll"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">FullTimeStaff</span><span class="p">(</span><span class="n">PartTimeStaff</span><span class="w"> </span><span class="n">pt</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">rank</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">contributionHours</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-</span><a id="__codelineno-7-42" name="__codelineno-7-42"></a><span class="hll"><span class="w">        </span><span class="k">this</span><span class="p">(</span><span class="n">pt</span><span class="p">.</span><span class="na">getFullName</span><span class="p">(),</span><span class="w"> </span><span class="n">pt</span><span class="p">.</span><span class="na">getId</span><span class="p">(),</span><span class="w"> </span><span class="n">pt</span><span class="p">.</span><span class="na">getQualificationLevel</span><span class="p">(),</span><span class="w"> </span><span class="n">rank</span><span class="p">,</span><span class="w"></span>
-</span><a id="__codelineno-7-43" name="__codelineno-7-43"></a><span class="hll"><span class="w">                </span><span class="n">contributionHours</span><span class="p">);</span><span class="w"></span>
-</span><a id="__codelineno-7-44" name="__codelineno-7-44"></a><span class="hll"><span class="w">    </span><span class="p">}</span><span class="w"></span>
-</span><a id="__codelineno-7-45" name="__codelineno-7-45"></a>
-<a id="__codelineno-7-46" name="__codelineno-7-46"></a><span class="w">    </span><span class="cm">/* ... */</span><span class="w"></span>
-<a id="__codelineno-7-47" name="__codelineno-7-47"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div></td></tr></table></div>
-<h3 id="parttimestaffjava_1">PartTimeStaff.java</h3>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">PartTimeStaff.java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-8-10">10</a></span>
-<span class="normal"><a href="#__codelineno-8-11">11</a></span>
-<span class="normal"><a href="#__codelineno-8-12">12</a></span>
-<span class="normal"><a href="#__codelineno-8-13">13</a></span>
-<span class="normal"><a href="#__codelineno-8-14">14</a></span>
-<span class="normal"><a href="#__codelineno-8-15">15</a></span>
-<span class="normal"><a href="#__codelineno-8-16">16</a></span>
-<span class="normal"><a href="#__codelineno-8-17">17</a></span>
-<span class="normal"><a href="#__codelineno-8-18">18</a></span>
-<span class="normal"><a href="#__codelineno-8-19">19</a></span>
-<span class="normal"><a href="#__codelineno-8-20">20</a></span>
-<span class="normal"><a href="#__codelineno-8-21">21</a></span>
-<span class="normal"><a href="#__codelineno-8-22">22</a></span>
-<span class="normal"><a href="#__codelineno-8-23">23</a></span>
-<span class="normal"><a href="#__codelineno-8-24">24</a></span>
-<span class="normal"><a href="#__codelineno-8-25">25</a></span>
-<span class="normal"><a href="#__codelineno-8-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PartTimeStaff</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AcademicStaff</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">hourlyRate</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hoursWorked</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-8-4" name="__codelineno-8-4"></a>
-<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">    </span><span class="c1">// Constructors</span><span class="w"></span>
-<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">PartTimeStaff</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">                         </span><span class="kt">double</span><span class="w"> </span><span class="n">hourlyRate</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">hoursWorked</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">hourlyRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hourlyRate</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">hoursWorked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hoursWorked</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-8-12" name="__codelineno-8-12"></a>
-<a id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">PartTimeStaff</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="w">                         </span><span class="kt">double</span><span class="w"> </span><span class="n">hourlyRate</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">fullName</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">qualificationLevel</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-8-16" name="__codelineno-8-16"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">hourlyRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hourlyRate</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-8-17" name="__codelineno-8-17"></a><span class="w">        </span><span class="n">hoursWorked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-8-18" name="__codelineno-8-18"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-8-19" name="__codelineno-8-19"></a>
-<a id="__codelineno-8-20" name="__codelineno-8-20"></a><span class="hll"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">PartTimeStaff</span><span class="p">(</span><span class="n">FullTimeStaff</span><span class="w"> </span><span class="n">ft</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">hourlyRate</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-</span><a id="__codelineno-8-21" name="__codelineno-8-21"></a><span class="hll"><span class="w">        </span><span class="k">this</span><span class="p">(</span><span class="n">ft</span><span class="p">.</span><span class="na">getFullName</span><span class="p">(),</span><span class="w"> </span><span class="n">ft</span><span class="p">.</span><span class="na">getId</span><span class="p">(),</span><span class="w"> </span><span class="n">ft</span><span class="p">.</span><span class="na">getQualificationLevel</span><span class="p">(),</span><span class="w"></span>
-</span><a id="__codelineno-8-22" name="__codelineno-8-22"></a><span class="hll"><span class="w">                </span><span class="n">hourlyRate</span><span class="p">);</span><span class="w"></span>
-</span><a id="__codelineno-8-23" name="__codelineno-8-23"></a><span class="hll"><span class="w">    </span><span class="p">}</span><span class="w"></span>
-</span><a id="__codelineno-8-24" name="__codelineno-8-24"></a>
-<a id="__codelineno-8-25" name="__codelineno-8-25"></a><span class="w">    </span><span class="cm">/* ... */</span><span class="w"></span>
-<a id="__codelineno-8-26" name="__codelineno-8-26"></a><span class="p">}</span><span class="w"></span>
-</code></pre></div></td></tr></table></div>
-<p>Try invoking these newly created constructors in your driver class to promote and demote the already created objects.</p>
-<h2 id="tasks">Tasks</h2>
-<h3 id="task-1">Task 1</h3>
-<p>Consider the class diagram given below:</p>
-<figure>
-<p><img alt="Task 1 Class Diagram" src="../images/lab08-01.png" />
-  </p>
-<figcaption>Employee Superclass with Manager and Clerk Subclasses</figcaption>
-</figure>
-<ol>
-<li>
-<p>Implement all the classes as according to the given hierarchy.</p>
-</li>
-<li>
-<p>Write a test program that creates an array named <code>empArray</code> that stores an object of an Employee, a Manager, and a Clerk.<br>
-    In your program, include a method called <code>printElements()</code> that takes an array as a parameter and prints the type of employee, the object's data field values (by invoking the <code>toString()</code> method) and the monthly salary.</p>
-</li>
-<li>
-<p>Override the Object class' <code>equals()</code> method in Employee, Manager, and clerk classes.
-    For each class, assume that two objects are considered equal if they have the <strong><em>same</em></strong> name.
-    Test the <code>equals()</code> method on all derived types of Employee.</p>
-</li>
-</ol>
-<h3 id="task-2">Task 2</h3>
-<p>A bank offers its customers the following account types:</p>
-<ul>
-<li>The savings account earns interest that compounds monthly (i.e., the interest is calculated based on the balance on the last day of the month).</li>
-<li>
-<p>The checking account has no interest, but the customer is given a small number of free transactions per month and is charged a nominal fee for each additional transaction.</p>
-</li>
-<li>
-<p>Create a superclass <code>Account</code> that has the properties account number, balance, and date created, as well as methods for deposit and withdrawal.
-   Create two subclasses for saving and checking accounts.</p>
-</li>
-<li>
-<p>Write a test program that creates objects of the classes <code>Account</code>, <code>SavingsAccount</code>, and <code>CheckingAccount</code>.</p>
-</li>
-</ul>
+<p>We will get into those during the next practical.</p>
+
+
+
 
               
             </article>
+            
           </div>
         </div>
         
@@ -1528,13 +1432,13 @@ Provided that the declaration is done using the object’s base class, the objec
     
     
     <a href="https://twitter.com/deezombiedude" target="_blank" rel="noopener" title="deezombiedude on Twitter" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
     </a>
   
     
     
     <a href="https://github.com/deezombiedude612" target="_blank" rel="noopener" title="deezombiedude612 on GitHub" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
     </a>
   
 </div>
@@ -1547,10 +1451,11 @@ Provided that the declaration is done using the object’s base class, the objec
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.c2e1ee47.min.js"></script>
+      <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
       
         <script src="../js/mathjax.js"></script>
       

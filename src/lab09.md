@@ -2,301 +2,354 @@
 template: base.html
 ---
 
-# Practical 09: Abstract Classes and Interfaces
+# Practical 09: Polymorphism
 
-If you look into the hierarchy of classes in Java, you may find that you are not able to create objects out of certain superclasses.
-This is often because having objects based on the structure of such superclasses don't make sense.
-In such cases like these, we often keep these classes (and sometimes some of their methods as well) as abstract.
+Polymorphism is another key concept in object-oriented programming.
+It refers to the capability of objects to react differently to the same method.
+Polymorphism can be implemented in the form of multiple methods having the same name.
+Java code uses a late-binding technique to support polymorphism; the method to be invoked is decided at runtime.
 
-## Activity: Implementing an Abstract Class and Abstract Methods
+## Activity: Overloading Methods vs. Overriding Methods
 
-Looking back at the program we just went through for the past two weeks, it is not very useful to have objects of just the `Employee` class.
-We can change it into an abstract class by adding the `abstract` keyword in the class declaration like as follows:
+**Overloaded** methods are methods that have the same name, but different argument lists.
+**Overriding**, on the other hand, occurs when a subclass method has the same name, same return type, and same argument list as the superclass method.
 
-```java linenums="1" hl_lines="1 7" title="AcademicStaff.java"
-public abstract class AcademicStaff {
-	private String fullName;
-	private String id;
-	private int qualificationLevel;
+### Overloading Methods
 
-	// Constructor
-	protected AcademicStaff(String fullName, String id, int qualificationLevel) {
-		this.fullName = fullName;
-		this.id = id;
-		this.qualificationLevel;
+One example of overloading methods that we have already covered during lecture when we first began going through classes and objects is through the use of multiple constructors.
+Going back to the previous activity, let's look at the `FullTimeStaff` class.
+Here, let's assume that if `baseSalary` isn't specified, it will be determined immediately by the `rank` entered.
+
+We'll now create a separate constructor method that takes in the same parameters, except `baseSalary` is excluded from this list.
+
+```java linenums="1" hl_lines="17-39" title="FullTimeStaff.java"
+public class FullTimeStaff extends AcademicStaff {
+	private int rank;
+	private int contributionHours;
+	private double baseSalary;
+
+	// Constructors
+	public FullTimeStaff(String fullName, String id, int qualificationLevel,
+	                     int rank, int contributionHours, double baseSalary) {
+		// calls the superclass' constructor
+		super(fullName, id, qualificationLevel);
+
+		this.rank = rank;
+		this.contributionHours = contributionHours;
+		this.baseSalary = baseSalary;
+	}
+
+	public FullTimeStaff(String fullName, String id, int qualificationLevel,
+	                     int rank, int contributionHours) {
+		super(fullName, id, qualificationLevel);
+		this.rank = rank;
+		this.contributionHours = contributionHours;
+
+		switch(this.rank) {
+			case 1:
+				this.baseSalary = 2000;
+				break;
+
+			case 2:
+				this.baseSalary = 2500;
+				break;
+
+			case 3:
+				this.baseSalary = 3000;
+				break;
+
+			default:
+				this.baseSalary = 0;
+		}
 	}
 
 	/* ... */
-
-	public double calculateSalary() {
-		return 0;
-	}
 }
 ```
 
-Here, we also modified the constructor declaration to use the `protected` keyword instead of the `public` keyword.
-It barely makes a difference for the time being, but it does ensure that it cannot be invoked unless from a linked subclass.
+We can do the same with the `PartTimeStaff` class, but with `hoursWorked` undefined.
+In this case, `hoursWorked` to 0 if unspecified.
 
-Note that in this class, the `calculateSalary()` method is also not useful.
-Apart from creating abstract classes, the `abstract` keyword can be used to create abstract methods as and when necessary.
+```java linenums="1" hl_lines="13-18" title="PartTimeStaff.java"
+public class PartTimeStaff extends AcademicStaff {
+	private double hourlyRate;
+	private int hoursWorked;
 
-```java linenums="1" hl_lines="15" title="AcademicStaff.java"
-protected abstract class AcademicStaff {
-	private String fullName;
-	private String id;
-	private int qualificationLevel;
-
-	// Constructor
-	protected AcademicStaff(String fullName, String id, int qualificationLevel) {
-		this.fullName = fullName;
-		this.id = id;
-		this.qualificationLevel;
+	// Constructors
+	public PartTimeStaff(String fullName, String id, int qualificationLevel,
+	                     double hourlyRate, int hoursWorked) {
+		super(fullName, id, qualificationLevel);
+		this.hourlyRate = hourlyRate;
+		this.hoursWorked = hoursWorked;
 	}
 
-	/* ... */
-
-	public abstract double calculateSalary();
-}
-```
-
-Abstract methods can still be overridden by subclasses.
-However, the visibility modifier of such declarations cannot be more private than that implemented in the superclass.
-In this case, you are not allowed to override the `calculateSalary()` method with any other visibility modifier apart from `public`.
-However, if the declaration here in the superclass is `protected` for example, subclasses can use the same visibility modifier or use a less private one like `public`.
-
-```java linenums="1" hl_lines="15" title="AcademicStaff.java"
-protected abstract class AcademicStaff {
-	private String fullName;
-	private String id;
-	private int qualificationLevel;
-
-	// Constructor
-	protected AcademicStaff(String fullName, String id, int qualificationLevel) {
-		this.fullName = fullName;
-		this.id = id;
-		this.qualificationLevel;
+	public PartTimeStaff(String fullName, String id, int qualificationLevel,
+	                     double hourlyRate) {
+		super(fullName, id, qualificationLevel);
+		this.hourlyRate = hourlyRate;
+		hoursWorked = 0;
 	}
 
-	/* ... */
-
-	protected abstract double calculateSalary();
-}
-```
-
-## Implementing a Simple Interface
-
-Let's create an interface class named `Manners`.
-We will only implement it in the `AcademicStaff` class, but the methods introduced from the `Manners` interface will be reflected on the related subclasses.
-This interface will have one method called `introduce()`, but there is no restriction as to how many methods are introduced here.
-
-```java title="Manners.java"
-public interface Manners {
-	void introduce();
-}
-```
-
-In order to introduce the use of this interface in the `AcademicStaff` class, introduce it using the `implements` keyword like as follows:
-
-```java linenums="1" hl_lines="1" title="AcademicStaff.java"
-public class AcademicStaff implements Manners {
 	/* ... */
 }
 ```
 
-!!! note
+Overloading methods isn't just restricted to constructors; this can be applied from a procedural programming standpoint.
+Let's assume that this class has two methods that print out the area of a shape given two different sets of parameters.
 
-    The usage of the `implements` keyword can be used alongside the `extends` keyword, should an interface ever need to be implemented on a subclass.
+```java linenums="1" title="Shape.java"
+public class Shape {
+	// Get area of quadrilateral
+	public double getArea(double width, double height) {
+		return width * height;
+	}
 
-When implementing an interface, one would require the method to be implemented.
-In the `AcademicStaff` class, assume that the `introduce()` prints out a greeting statement.
+	// Get area of circle
+	public double getArea(double radius) {
+		return Math.PI * radius * radius;
+	}
 
-```java linenums="1" hl_lines="4-6" title="AcademicStaff.java"
-public class AcademicStaff implements Manners {
+	/* ... */
+}
+```
+
+The key idea behind overloading methods is to have methods of the **same name, but different argument lists**.
+Here, depending on whether one double value or two double values are entered, you get two different methods of calculating the area of the shape.
+Overloading methods is also not restricted by the return type being used.
+For example, one may create a `getArea()` method that returns an integer value based on yet another argument list.
+The number of times a method is overloaded is not restricted as well, but ensure not to have ambiguous parameter lists like as follows:
+
+```java linenums="1" title="Shape.java"
+public class Shape {
+	public double getArea(double width, double height) {
+		/* ... */
+	}
+
+	public double getArea(double radius, int dimension) {
+		/* ... */
+	}
+
+	/* ... */
+}
+```
+
+Here, the compiler does not know which method to use when invoked with a parameter list where the second number can be interpreted as either an integer or double.
+
+### Overriding Methods
+
+Overriding methods involve having methods of the same name, return type, and argument list between superclass and subclass.
+
+Going back to last week's activity again, we will now override the `toString()` and `calculateSalary()` methods of both subclasses.
+
+#### FullTimeStaff.java
+
+```java linenums="1" hl_lines="4-26" title="FullTimeStaff.java"
+public class FullTimeStaff extends AcademicStaff {
 	/* ... */
 
-	public void introduce() {
-		System.out.println("Hi, I'm " + fullName + "!");
+	public double calculateSalary() { return baseSalary + getBonus(); }
+
+	public String toString() {
+		String rankName = "";
+		switch(rank) {
+			case 1:
+				rankName = "Lecturer";
+				break;
+
+			case 2:
+				rankName = "Senior Lecturer";
+				break;
+
+			case 3:
+				rankName = "Professor";
+				break;
+
+			default:
+		}
+
+		return super.toString()
+				+ "\nStaff Rank: " + rankName;
 	}
 }
 ```
 
-### Optional Activity
+#### PartTimeStaff.java
 
-How would you implement this interface in the subclasses should you want the `introduce()` method to act differently based on which subclass it is being called from?
+```java linenums="1" hl_lines="4-9" title="PartTimeStaff.java"
+public class PartTimeStaff extends AcademicStaff {
+	/* ... */
 
-## Task
+	public double calculateSalary() { return hourlyRate * hoursWorked; }
 
-In this practical task, you will build simple programs using abstract classes.
-You will also learn how to add polymorphic behavior to the program using abstract methods.
-
-### Product.java
-
-The skeleton code for `Product.java` is given below.
-The `Product` class is an abstract class that has an abstract method called `computeSalePrice()`.
-
-```java linenums="1" hl_lines="1 10-11" title="Product.java"
-// Product class is now an abstract class
-public abstract class Product {
-	private double regularPrice;
-
-	// Creates a new instance of Product
-	public Product(double regularPrice) {
-		this.regularPrice = regularPrice;
-	}
-
-	// computeSalesPrice() is now an abstract method
-	public abstract double computeSalePrice();
-
-	public double getRegularPrice() { return regularPrice; }
-
-	public void setRegularPrice(double regularPrice) {
-		this.regularPrice = regularPrice;
+	public String toString() {
+		return super.toString()
+				+ "\nStaff Rank: Part-Time Lecturer";
 	}
 }
 ```
 
-### Electronics.java
+In this example, we have already overriden `toString()` twice, once between the superclass and subclass we have just created, and the other via overriding from the `Object` class.
+In Java, all classes are considered subclasses of the `Object` class, which in turn, is the superclass of just about any class that exists in Java and any class you create.
+Java's `Object` class contains the `toString()` method by default, which prints out the memory address the object is taking up.
+This is not particularly helpful to us as regular users who pay no regard to where about the object is specifically being stored in the computer's memory.
 
-The `Electronics` class itself is an abstract class because it does not provide implementation of the `computeSalePrice()` abstract method.
+Making the following modifications to the main method in the driver class will render the following output:
 
-```java linenums="1" hl_lines="1-4" title="Electronics.java"
-/**
- * Electronics class is now an abstract class because it does not provide
- * implementation of the computeSalePrice() abstract method.
- */
-public abstract class Electronics extends Product {
-	private String manufacturer;
+```java linenums="1" title="Driver.java"
+public class Driver {
+	public static void main(String[] args) {
+		FullTimeStaff staff1 = new FullTimeStaff("Horace Diaz", "ABC123", 3, 3, 10, 3000);
+		System.out.println(staff1.toString());
+		System.out.printf("(Staff1) Salary: $ %.2f", staff1.calculateSalary());
 
-	// Creates a new instance of Electronics
-	public Electronics(double regularPrice, String manufacturer) {
-		super(regularPrice);
-		this.manufacturer = manufacturer;
-	}
+		System.out.println("\n");
 
-	public String getManufacturer() { return manufacturer; }
-
-	public void setManufacturer(String manufacturer) {
-		this.manufacturer = manufacturer;
+		PartTimeStaff staff2 = new PartTimeStaff("Ivan Lam", "XYZ787", 2, 125, 20);
+		System.out.println(staff2.toString());
+		System.out.println("(Staff2) Hours worked: " + staff2.getHoursWorked());
+		staff2.addHoursWorked(5);
+		System.out.println("(Staff2) Hours worked: " + staff2.getHoursWorked());
+		System.out.printf("(Staff2) Salary: $ %.2f", staff1.calculateSalary());
 	}
 }
 ```
 
-1.  Write `MP3Player.java`.
-    The `MP3Player` class extends the `Electronics` class.
-    The `MP3Player` class should implement the `computeSalePrice()` method with the following statement:
+Output:
 
-    ```java
-    return super.getRegularPrice() * 0.9;
-    ```
+    Full Name: Horace Diaz
+    Staff ID: ABC123
+    Qualification Type: Doctorate
+    Staff Rank: Professor
+    (Staff1) Salary: $ 4000.00
 
-    Note:
-    In addition to the implementation of the abstract method, you might also need to include a constructor or instance variable.
+    Full Name: Ivan Lam
+    Staff ID: XYZ787
+    Qualification Type: Master
+    Staff Rank: Part-Time Lecturer
+    (Staff2) Hours worked: 20
+    (Staff2) Hours worked: 25
+    (Staff2) Salary: $ 3125.00
 
-2.  Write `TV.java`.
-    The `TV` class extends the `Electronics` abstract class.
-    The `TV` class should also implement the `computeSalePrice()` method, but with the following statement:
+## Optional Activity: Subtype Polymorphism
 
-    ```java
-    return super.getRegularPrice() * 0.8;
-    ```
+Subtype polymorphism (also known as subtyping or inclusion polymorphism) is a type of polymorphism in which an object can change its class based on its base class (superclass).
+Provided that the declaration is done using the object’s base class, the object can substitute its class with any classes that are subclasses of that superclass.
 
-    Note:
-    In addition to the implementation of the abstract method, you might also need to include a constructor or instance variable.
+In our example, let's create yet another constructor in each of the subclasses to simulate a promotion/demotion act between full-time and part-time statuses.
 
-3.  Complete `Book.java`.
-    The `Book` class extends the `Product` class.
-    The `Book` class should also implement the `computeSalePrice()` method, but with the following statement:
+### FullTimeStaff.java
 
-    ```java
-    return super.getRegularPrice() * 0.5;
-    ```
+```java linenums="1" hl_lines="41-44" title="FullTimeStaff.java"
+public class FullTimeStaff extends AcademicStaff {
+	private int rank;
+	private int contributionHours;
+	private double baseSalary;
 
-    You may continue with the given code for `Book.java` as follows:
+	// Constructors
+	public FullTimeStaff(String fullName, String id, int qualificationLevel,
+	                     int rank, int contributionHours, double baseSalary) {
+		// calls the superclass' constructor
+		super(fullName, id, qualificationLevel);
 
-    ```java linenums="1" hl_lines="12" title="Book.java"
-    public class Book extends Product {
-    	private String publisher;
-    	private int yearPublished;
+		this.rank = rank;
+		this.contributionHours = contributionHours;
+		this.baseSalary = baseSalary;
+	}
 
-    	// Creates a new instance of Book
-    	public Book(double regularPrice, String publisher,
-    							int yearPublished) {
-    		super(regularPrice);
+	public FullTimeStaff(String fullName, String id, int qualificationLevel,
+	                     int rank, int contributionHours) {
+		super(fullName, id, qualificationLevel);
+		this.rank = rank;
+		this.contributionHours = contributionHours;
 
-    	}
+		switch(this.rank) {
+			case 1:
+				this.baseSalary = 2000;
+				break;
 
-    	// Implement abstract method here
+			case 2:
+				this.baseSalary = 2500;
+				break;
 
-    	public String getPublisher() { return publisher; }
+			case 3:
+				this.baseSalary = 3000;
+				break;
 
-    	public void setPublisher(String publisher) {
-    		this.publisher = publisher;
-    	}
+			default:
+				this.baseSalary = 0;
+		}
+	}
 
-    	public int getYearPublished() { return yearPublished; }
+	public FullTimeStaff(PartTimeStaff pt, int rank, int contributionHours) {
+		this(pt.getFullName(), pt.getId(), pt.getQualificationLevel(), rank,
+				contributionHours);
+	}
 
-    	public void setYearPublished(int yearPublished) {
-    		this.yearPublished = yearPublished;
-    	}
-    }
-    ```
+	/* ... */
+}
+```
 
-4.  Run `Main.java`.
+### PartTimeStaff.java
 
-    ```java linenums="1" hl_lines="6-9" title="Main.java"
-    public class Main {
-    	public static void main(String[] args) {
-    		// Declare and create Product array of size 5
-    		Product[] pa = new Product[5];
+```java linenums="1" hl_lines="20-23" title="PartTimeStaff.java"
+public class PartTimeStaff extends AcademicStaff {
+	private double hourlyRate;
+	private int hoursWorked;
 
-    		/**
-    		  * Create object instances and assign them to
-    		  * the type of Product.
-    		  */
-    		pa[0] = new TV(1000, "Samsung", 30);
-    		pa[1] = new TV(2000, "Sony", 50);
-    		pa[2] = new MP3Player(250, "Apple", "blue");
-    		pa[3] = new Book(34, "Sun Press", 1992);
-    		pa[4] = new Book(15, "Korea Press", 1986);
+	// Constructors
+	public PartTimeStaff(String fullName, String id, int qualificationLevel,
+	                     double hourlyRate, int hoursWorked) {
+		super(fullName, id, qualificationLevel);
+		this.hourlyRate = hourlyRate;
+		this.hoursWorked = hoursWorked;
+	}
 
-    		// Compute total regular price and total sale price
-    		double totalRegularPrice = 0;
-    		double totalSalePrice = 0;
+	public PartTimeStaff(String fullName, String id, int qualificationLevel,
+	                     double hourlyRate) {
+		super(fullName, id, qualificationLevel);
+		this.hourlyRate = hourlyRate;
+		hoursWorked = 0;
+	}
 
-    		for(int i = 0; i < pa.length; i++) {
-    			/**
-    			  * Call a method of the superclass to get
-    			  * the regular price.
-    			  */
-    			totalRegularPrice += pa[i].getRegularPrice();
+	public PartTimeStaff(FullTimeStaff ft, double hourlyRate) {
+		this(ft.getFullName(), ft.getId(), ft.getQualificationLevel(),
+				hourlyRate);
+	}
 
-    			/**
-    			  * Since the sale price is computed differently
-    			  * depending on the product type, overriding
-    			  * (implementation) method of the object instance
-    			  * of the subclass gets invoked. This is runtime
-    			  * polymorphic behavior.
-    			  */
-    			totalSalePrice += pa[i].computeSalePrice();
+	/* ... */
+}
+```
 
-    			System.out.println("Item number " + i
-    				+ ": Type = " + pa[i].getClass().getName()
-    				+ ", Regular price = " + pa[i].getRegularPrice()
-    				+ ", Sale price = " + pa[i].computeSalePrice());
-    		}
-    		System.out.println("totalRegularPrice = "
-    			+ totalRegularPrice);
-    		System.out.println("totalSalePrice = " + totalSalePrice);
-    	}
-    }
-    ```
+Try invoking these newly created constructors in your driver class to promote and demote the already created objects.
 
-    You should observe the following output results:
+## Tasks
 
-        Item number 0: Type = myonlineshop.TV, Regular price = 1000.0, Sale price = 800.0
-        Item number 1: Type = myonlineshop.TV, Regular price = 2000.0, Sale price = 1600.0
-        Item number 2: Type = myonlineshop.MP3Player, Regular price = 250.0, Sale price = 225.0
-        Item number 3: Type = myonlineshop.Book, Regular price = 34.0, Sale price = 17.0
-        Item number 4: Type = myonlineshop.Book, Regular price = 15.0, Sale price = 7.5
-        totalRegularPrice = 3299.0
-        totalSalePrice = 2649.5
+### Task 1
+
+Consider the class diagram given below:
+
+<figure markdown>
+![Task 1 Class Diagram](./images/lab09-01.png)
+  <figcaption>Employee Superclass with Manager and Clerk Subclasses</figcaption>
+</figure>
+
+1.  Implement all the classes as according to the given hierarchy.
+
+2.  Write a test program that creates an array named `empArray` that stores an object of an Employee, a Manager, and a Clerk.<br>
+    In your program, include a method called `printElements()` that takes an array as a parameter and prints the type of employee, the object's data field values (by invoking the `toString()` method) and the monthly salary.
+
+3.  Override the Object class' `equals()` method in Employee, Manager, and clerk classes.
+    For each class, assume that two objects are considered equal if they have the **_same_** name.
+    Test the `equals()` method on all derived types of Employee.
+
+### Task 2
+
+A bank offers its customers the following account types:
+
+- The savings account earns interest that compounds monthly (i.e., the interest is calculated based on the balance on the last day of the month).
+- The checking account has no interest, but the customer is given a small number of free transactions per month and is charged a nominal fee for each additional transaction.
+
+1. Create a superclass `Account` that has the properties account number, balance, and date created, as well as methods for deposit and withdrawal.
+   Create two subclasses for saving and checking accounts.
+
+2. Write a test program that creates objects of the classes `Account`, `SavingsAccount`, and `CheckingAccount`.

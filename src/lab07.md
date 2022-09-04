@@ -2,260 +2,136 @@
 template: base.html
 ---
 
-# Practical 07: Inheritance
+# Practical 07: Classes and Objects (Part 2)
 
-Inheritance is one of the key concepts in object-oriented programming.
-With it, one can group similar elements (i.e., attributes and/or methods) of a group of classes and stash them in a superclass/parent class.
-The separate classes (now subclasses/child classes) will inherit these similar elements while having their own unique elements that make them different from the other fellow subclasses.
+Continuing off where we left off in the previous practical, we will now implement a form of encapsulation into our program.
 
-## Activity: Implementing "IS-A" Relationships
+## Tasks
 
-Inheritance defines relationships between classes, the "IS-A" relationship type in particular.
+### Task 1
 
-### Illustration Example
+Modify your `Planet` class (from Practical 06) by making its data members _private_ and adding the relevant `get` and `set` methods.
+Modify your test class accordingly to test the `get` and `set` methods that you have written.
 
-To illustrate this, let's compare two different groups of academic staff in Taylor's College, namely the full-time staff and part-time staff.
-Here, we are implying the following:
+1.  Modify the driver program to include an array of `Planet` objects.
+    Use the enhanced `for` loop to display the age corresponding to each `Planet` object stored in the array.
 
-- A full-time academic staff member "**IS-A**" academic staff.
-- A part-time academic staff member "**IS-A**" academic staff.
+2.  Modify the `Planet` class by using the `this` keyword to refer to the data member(s) and constructor (if possible).
 
-Ignore the grammatical error, the idea's to show relations between these superclass and subclasses. 😝
+### Task 2
 
-On a base level, every academic staff has common attributes including:
+Create a class based on the following class diagram:
 
-- full name (`fullName`)
-- staff ID (`id`)
-- qualification level (assume 1 stands for Bachelor, 2 stands for Masters, and 3 stands for PhD) (`qualificationLevel`)
-
-Now let's compare some differences between the two types of staff:
-
-- Full time academic staff can have two types of rankings: Lecturer, Senior Lecturer, Head of Department.
-  Let's assume 1 stands for the Lecturer rank, and 2 stands for Senior Lecturer, and 3 stands for Head of Department.
-  We will call this value `rank`.
-
-  Part-time academic staff do not have a ranking to climb.
-
-- Full-time academic staff are required to contribute hours either into the research field or undergo trainings.
-  For now, let's assume the hours spent on these duties stack together with each other.
-  We will call this value `contributionHours`.
-
-  Let's also assume that part-time academic staff, on the other hand, are not expected to offer such contributions to the College.
-
-- Part-time staff work on an hourly wage rate (`hourlyRate`).
-  The salary amount paid to part-time staff is dependent on the product of their hourly wage rate and the number of hours worked.
-
-  Full-time staff, on the other hand, are paid a baseline salary amount (`baseSalary`), plus any bonus received.
-
-### Implementing the Idea
-
-#### AcademicStaff.java
-
-We begin by implementing the superclass first; name it `AcademicStaff`.
-
-Let's assume that the `AcademicStaff` class also has 3 methods: `toString()`, `printStaff()` and `calculateSalary()`.
-For now, we will say that `calculateSalary()` will immediately return 0 from a generic AcademicStaff object.
-We will also implement `toString()` as a method that returns a String - the reason for this will be explained when we touch on Polymorphism next week.
-
-```java linenums="1" title="AcademicStaff.java"
-public class AcademicStaff {
-	private String fullName;
-	private String id;
-	private int qualificationLevel;
-
-	// Constructor
-	public AcademicStaff(String fullName, String id, int qualificationLevel) {
-		this.fullName = fullName;
-		this.id = id;
-		this.qualificationLevel = qualificationLevel;
+<!-- ```mermaid
+classDiagram
+	class House {
+		- type: String
+		- zone: char
+		- price: double
+		- numberOfBedrooms: int
+		- freehold: boolean
+		+ House()
+		+ House(type: String, price: double, numberOfBedrooms: int)
+		+ House(type: String, zone: char, price: double, numberOfBedrooms: int, freehold: boolean)
+		+ getters and setters
+		+ toString(): String
 	}
+``` -->
 
-	// Accessor and Mutator Methods
-	public String getFullName() {
-		return fullName;
-	}
-	public String getId() {
-		return id;
-	}
-	public int getQualificationLevel() {
-		return qualificationLevel;
-	}
+![Task 2 Class Diagram](./images/lab07-02.png)
 
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public void setQualificationLevel(int qualificationLevel) {
-		this.qualificationLevel = qualificationLevel;
-	}
+Notes:
 
-	public String toString() {
-		String qualification = "";
+- Initialize the value of `type` to “Apartment”, `zone` to ‘A’, `price` to 68000.00, `numberOfBedrooms` to 3 and `freehold` to `false` for no-arg constructor.
+- Use the `toString()` method to print out all house details.
 
-		switch(qualificationLevel) {
-			case 1:
-				qualification = "Bachelor";
-				break;
+1. Create a driver program for the class you just created to test all the available constructors and methods.
 
-			case 2:
-				qualification = "Master";
-				break;
+   - Create three house objects.
+   - Create an array to store the three house objects.
 
-			case 3:
-				qualification = "Doctorate";
-				break;
+2. Modify the `House` class by using the `this` keyword to refer to the data member(s) and constructor (if possible).
 
-			default:
-		}
+### Task 3
 
-		return "Full Name: " + fullName
-				+ "\nStaff ID: " + id
-				+ "\nQualification Type: " + qualification;
-	}
+Consider the following information:
 
-	public void printStaff() {
-		System.out.println(this.toString());
-	}
+| **Mickey Cake House**                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------- |
+| Flavors:<br> 1. Chocolate Moist <br> 2. Strawberry <br> 3. Blueberry <br> 4. Cheesy Cake <br> 5. American Chocolate |
+| Price List:<br> 1(kg) = RM 25.50<br>2(kg) = RM 50.00<br>3(kg) = RM 75.00                                            |
 
-	public double calculateSalary() {
-		return 0;
-	}
-}
+#### Part 1
+
+Create a class named `Bakery` to represent a cake ordering system.
+For each cake ordering system, you would need to store details about the _flavors_ (a string), _weight_ (a string) and _quantity_ ordered.
+
+- Provide `get` and `set` methods for each data field.
+  For each `set` method's parameter, **_use the same identifier as the corresponding data field_** (this would require the use of the `this` keyword to access the object's data field within the `set` method).
+
+- Provide 2 constructors:
+
+      - A three-parameter constructor.
+      - A no-arg constructor which initializes the respective data fields to **"Chocolate Moist"**, **"1(kg)"** and **1** unit.
+      	This constructor should invoke the three parameters constructor.
+
+- Include a `toString()` method to print out all the cake ordering details.
+- Create a driver program to test all the available constructors.
+
+#### Part 2
+
+Add the following method to your `Bakery` class from Part 1 to return the unit price:
+
+```java
+public double getPrice()
 ```
 
-We will now implement the subclasses next.
+**NOTE:**
+The unit price is dependent on the weight of the cake.
+Remember to take class design into consideration and implement any necessary constructs to ensure the maintainability of your class.
+Modify the driver program to test the `getPrice()` method.
 
-#### FullTimeStaff.java
+#### Part 3
 
-<!-- Let's assume that the `toString()` method for both -->
+**Mickey Cake House** requires an application with the following sample dialog:
 
-We establish the fact that full-time staff's salary is calculated as follows:
+```
+Enter how many types of cake you would like to order >> 2
 
-$$ \text{Full-time Staff's Salary} = \text{Base Salary} + \text{Bonus for the month} $$
+Flavor
+	1. Chocolate Moist
+	2. Strawberry
+	3. Blueberry
+	4. Cheesy Cake
+	5. American Chocolate
 
-Let's assume that the `FullTimeStaff` class has a specific method that is used during the calculation of the salary such that the bonus depends on the amount of contribution hours put in.
-Specifically, assume
+Price List
+	(1)kg = RM25.50
+	(2)kg = RM50.00
+	(3)kg = RM75.00
 
-$$ \text{Bonus Received} = \$(\text{Number of contribution hours} \times 100 ) $$
+Bakery Item 1
+--------------
+Enter your choice of cake flavor (1 - 5) >> 1
+Enter the weight of cake (1 - 1kg, 2 - 2kg and 3 - 3kg) >> 2
+Enter quantity ordered >> 2
 
-We will call this method `getBonus()`.
+Bakery Item 2
+--------------
+Enter your choice of cake flavor (1 - 5) >> 4
+Enter the weight of cake (1 - 1kg, 2 - 2kg and 3 - 3kg) >> 1
+Enter quantity ordered >> 3
 
-```java linenums="1" title="FullTimeStaff.java"
-public class FullTimeStaff extends AcademicStaff {
-	private int rank;
-	private int contributionHours;
-	private double baseSalary;
-
-	// Constructor
-	public FullTimeStaff(String fullName, String id, int qualificationLevel,
-	                     int rank, int contributionHours, double baseSalary) {
-		// calls the superclass' constructor
-		super(fullName, id, qualificationLevel);
-
-		this.rank = rank;
-		this.contributionHours = contributionHours;
-		this.baseSalary = baseSalary;
-	}
-
-	// Accessor and Mutator Methods
-	public int getRank() { return rank; }
-	public int getContributionHours() { return contributionHours; }
-	public double getBaseSalary() { return baseSalary; }
-
-	public void setRank(int rank) { this.rank = rank; }
-	public void setContributionHours(int contributionHours) {
-		this.contributionHours = contributionHours;
-	}
-	public void setBaseSalary(double baseSalary) {
-		this.baseSalary = baseSalary;
-	}
-
-	// Determines bonus amount
-	public double getBonus() { return contributionHours * 100; }
-}
+Order Details:
+----------------
+No 	Cake Flavor       Weight    Unit Price (RM)   Quantity   Total Price (RM)
+--  --------------   --------   ---------------   --------   ----------------
+1   Chocolate Moist    2kg          50.00             2            100.00
+2   Cheesy Cake        1kg          25.50             3             76.50
+-----------------------------------------------------------------------------
+                                                  Grand Total:     176.50
 ```
 
-Recall that in order for a subclass to be able to call a method or constructor belonging to the superclass, you will need to use the `super` keyword.
+With reference to the above requirement, identify and make necessary additions/changes to your `Bakery` class and create the required application program.
 
-#### PartTimeStaff.java
-
-There are also some specifics for the part-time staff.
-Let's assume that one may add hours the number of hours worked in addition to the number of hours already being worked on.
-We'll name this method `addHoursWorked()`, which takes in one parameter value called `additionalHours`.
-
-```java linenums="1" title="PartTimeStaff.java"
-public class PartTimeStaff extends AcademicStaff {
-	private double hourlyRate;
-	private int hoursWorked;
-
-	// Constructor
-	public PartTimeStaff(String fullName, String id, int qualificationLevel,
-	                     double hourlyRate, int hoursWorked) {
-		// calls the superclass' constructor
-		super(fullName, id, qualificationLevel);
-
-		this.hourlyRate = hourlyRate;
-		this.hoursWorked = hoursWorked;
-	}
-
-	// Accessor and Mutator Methods
-	public double getHourlyRate() { return hourlyRate; }
-	public int getHoursWorked() { return hoursWorked; }
-
-	public void setHourlyRate(double hourlyRate) {
-		this.hourlyRate = hourlyRate;
-	}
-	public void setHoursWorked(int hoursWorked) {
-		this.hoursWorked = hoursWorked;
-	}
-
-	// Add hours worked
-	public void addHoursWorked(int additionalHours) {
-		this.hoursWorked += additionalHours;
-	}
-}
-```
-
-#### Driver Program
-
-Let's create a separate class acting as the driver class which will contain the main method.
-
-We can create objects of each subclass like as follows:
-
-```java linenums="1" title="Driver.java"
-public class Driver {
-	public static void main(String[] args) {
-		FullTimeStaff staff1 = new FullTimeStaff("Horace Diaz", "ABC123", 3, 3, 10, 3000);
-		System.out.println(staff1.toString());
-
-		System.out.println("\n");
-
-		PartTimeStaff staff2 = new PartTimeStaff("Ivan Lam", "XYZ787", 2, 125, 20);
-		System.out.println(staff2.toString());
-
-		System.out.println("(Staff2) Hours worked: " + staff2.getHoursWorked());
-		staff2.addHoursWorked(5);
-		System.out.println("(Staff2) Hours worked: " + staff2.getHoursWorked());
-	}
-}
-```
-
-At the end of this activity, you should be able to implement inheritance in your program.
-However, we are not done with this program just yet.
-There are still the calculation of salary still displaying 0 if the respective method is called, and each of the subclass' `toString()` methods does not show any difference.
-
-Output:
-
-    Full Name: Horace Diaz
-    Staff ID: ABC123
-    Qualification Type: Doctorate
-
-    Full Name: Ivan Lam
-    Staff ID: XYZ787
-    Qualification Type: Master
-    (Staff2) Hours worked: 20
-    (Staff2) Hours worked: 25
-
-We will get into those during the next practical.
+Once again, remember to take object-oriented design issues into consideration and implement the necessary constructs to ensure the maintainability of your class.

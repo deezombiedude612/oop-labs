@@ -2,115 +2,18 @@
 template: base.html
 ---
 
-# Practical 10: Exception Handling
+# Practical 10: Abstract Classes and Interfaces
 
-Unfortunately, we live in a tragic society where there exist individuals who are fascinated with breaking stuff, and those who would rather fight for the right to do whatever they so please.
-This is no different with programs, but this is one way on how bugs are discovered in programs.
-In this practical, let's start playing the devil's advocate and do all we can to patch such problems.
-Who says that there is absolutely nothing that can be done to prevent their actions from affecting others?
+If you look into the hierarchy of classes in Java, you may find that you are not able to create objects out of certain superclasses.
+This is often because having objects based on the structure of such superclasses don't make sense.
+In such cases like these, we often keep these classes (and sometimes some of their methods as well) as abstract.
 
-Java provides Exception classes that can be used to cater for unintended occurrences.
-While utilizing Exceptions are always welcome, one should try to resort to using simpler tactics whenever possible (e.g., implementing checks with if-else statements).
-It is also worth noting that for some languages, utilizing exception handling is not strongly encouraged.
+## Activity: Implementing an Abstract Class and Abstract Methods
 
-## Activity: Applying Exception Handling into a Program
+Looking back at the program we just went through for the past two weeks, it is not very useful to have objects of just the `Employee` class.
+We can change it into an abstract class by adding the `abstract` keyword in the class declaration like as follows:
 
-Let's revisit that Staff program we just around to developing these past three practical sessions.
-We'll begin with the abstract parent class `AcademicStaff.java`.
-
-### AcademicStaff.java
-
-`AcademicStaff.java` has attributes `fullName`, `id`, and `qualificationLevel`.
-From the way we've implemented the `qualificationLevel` attribute, it can take one of 3 values: 1 (Bachelor), 2 (Master), or 3 (Doctorate).
-
-Let's make it such that when initializing an AcademicStaff object, it throws an Exception when any other value is received for `qualificationLevel`
-(not that it can now since it's abstract, but it will do the same for the subclasses).
-We will now modify the mutator method for this attribute like as follows:
-
-```java linenums="1" hl_lines="2-3"
-public void setQualificationLevel(int qualificationLevel) {
-    if (qualificationLevel < 1 || qualificationLevel > 3)
-        throw new IllegalArgumentException("Qualification Level must be either 1, 2, or 3!");
-
-    this.qualificationLevel = qualificationLevel;
-}
-```
-
-Here, we are throwing an `IllegalArgumentExcpetion` back to the method that called it.
-The `IllegalArgumentExcpetion` class is one of many exception classes that exist in Java.
-This one in particular is best used here since we can regard a qualification level which is not one of the stated values (i.e., 1-3) as an illegal argument/value.
-
-### FullTimeStaff.java
-
-The `rank` attribute follows the same convention as with the `AcademicStaff`'s `qualificationLevel` attribute.
-
-```java linenums="1" hl_lines="2-3"
-public void setRank(int rank) {
-    if (rank < 1 || rank > 3)
-        throw new IllegalArgumentException("Rank must be either 1, 2, or 3!");
-
-    this.rank = rank;
-}
-```
-
-For both the `contributionHours` and `baseSalary` attributes, they are expected to contain non-negative values.
-We can proceed to throw an exception each time a negative value is entered, or we can set it to 0 instead (this does not require throwing an Exception, rather to implement an if-else statement).
-The choice is entirely up to you.
-
-#### Throwing an Exception
-
-```java linenums="1" hl_lines="2-3"
-public void setContributionHours(int contributionHours) {
-    if (contributionHours < 0)
-        throw new IllegalArgumentException("Contribution hours cannot be negative!");
-
-    this.contributionHours = contributionHours;
-}
-```
-
-```java linenums="1" hl_lines="2-3"
-public void setBaseSalary(int baseSalary) {
-    if (baseSalary < 0)
-        throw new IllegalArgumentException("Base salary cannot be negative!");
-
-    this.baseSalary = baseSalary;
-}
-```
-
-#### Defaulting to 0
-
-```java linenums="1" hl_lines="2-5"
-public void setContributionHours(int contributionHours) {
-    if (contributionHours < 0)
-        this.contributionHours = 0;
-    else
-        this.contributionHours = contributionHours;
-}
-```
-
-```java linenums="1" hl_lines="2-3"
-public void setBaseSalary(int baseSalary) {
-    if(baseSalary < 0)
-        this.baseSalary = 0;
-    else
-        this.baseSalary = baseSalary;
-}
-```
-
-### PartTimeStaff.java
-
-The same approaches to `FullTimeStaff`'s attributes can be done for `PartTimeStaff`'s `hourlyRate` and `hoursWorked` attributes.
-Simply modify their mutator methods to work similarly.
-
-Apart from these mutator methods, we can also modify the `addHoursWorked()` method such that it will not take in negative values.
-In this case, reverting the `hoursWorked` value is not appropriate.
-Thus, you should throw an `IllegalArgumentException` object instead in its place.
-
-### Forcing Constructors to Use Modified Mutator Methods
-
-Let's now modify the constructors in this class as well as the two subclasses such that they use the mutator methods by default when called.
-
-```java linenums="1" hl_lines="8-10" title="AcademicStaff.java"
+```java linenums="1" hl_lines="1 7" title="AcademicStaff.java"
 public abstract class AcademicStaff {
 	private String fullName;
 	private String id;
@@ -118,235 +21,282 @@ public abstract class AcademicStaff {
 
 	// Constructor
 	protected AcademicStaff(String fullName, String id, int qualificationLevel) {
-		setFullName(fullName);
-		setId(id);
-		setQualificationLevel(qualificationLevel);
+		this.fullName = fullName;
+		this.id = id;
+		this.qualificationLevel;
 	}
 
+	/* ... */
+
+	public double calculateSalary() {
+		return 0;
+	}
+}
+```
+
+Here, we also modified the constructor declaration to use the `protected` keyword instead of the `public` keyword.
+It barely makes a difference for the time being, but it does ensure that it cannot be invoked unless from a linked subclass.
+
+Note that in this class, the `calculateSalary()` method is also not useful.
+Apart from creating abstract classes, the `abstract` keyword can be used to create abstract methods as and when necessary.
+
+```java linenums="1" hl_lines="15" title="AcademicStaff.java"
+protected abstract class AcademicStaff {
+	private String fullName;
+	private String id;
+	private int qualificationLevel;
+
+	// Constructor
+	protected AcademicStaff(String fullName, String id, int qualificationLevel) {
+		this.fullName = fullName;
+		this.id = id;
+		this.qualificationLevel;
+	}
+
+	/* ... */
+
+	public abstract double calculateSalary();
+}
+```
+
+Abstract methods can still be overridden by subclasses.
+However, the visibility modifier of such declarations cannot be more private than that implemented in the superclass.
+In this case, you are not allowed to override the `calculateSalary()` method with any other visibility modifier apart from `public`.
+However, if the declaration here in the superclass is `protected` for example, subclasses can use the same visibility modifier or use a less private one like `public`.
+
+```java linenums="1" hl_lines="15" title="AcademicStaff.java"
+protected abstract class AcademicStaff {
+	private String fullName;
+	private String id;
+	private int qualificationLevel;
+
+	// Constructor
+	protected AcademicStaff(String fullName, String id, int qualificationLevel) {
+		this.fullName = fullName;
+		this.id = id;
+		this.qualificationLevel;
+	}
+
+	/* ... */
+
+	protected abstract double calculateSalary();
+}
+```
+
+## Implementing a Simple Interface
+
+Let's create an interface class named `Manners`.
+We will only implement it in the `AcademicStaff` class, but the methods introduced from the `Manners` interface will be reflected on the related subclasses.
+This interface will have one method called `introduce()`, but there is no restriction as to how many methods are introduced here.
+
+```java title="Manners.java"
+public interface Manners {
+	void introduce();
+}
+```
+
+In order to introduce the use of this interface in the `AcademicStaff` class, introduce it using the `implements` keyword like as follows:
+
+```java linenums="1" hl_lines="1" title="AcademicStaff.java"
+public class AcademicStaff implements Manners {
 	/* ... */
 }
 ```
 
-```java linenums="1" hl_lines="10-12 18-19 23 27 31 35" title="FullTimeStaff.java"
-public class FullTimeStaff extends AcademicStaff {
-	private int rank;
-	private int contributionHours;
-	private double baseSalary;
+!!! note
 
-	// Constructors
-	public FullTimeStaff(String fullName, String id, int qualificationLevel,
-	                     int rank, int contributionHours, double baseSalary) {
-		super(fullName, id, qualificationLevel);
-		setRank(rank);
-		setContributionHours(contributionHours);
-		setBaseSalary(baseSalary);
-	}
+    The usage of the `implements` keyword can be used alongside the `extends` keyword, should an interface ever need to be implemented on a subclass.
 
-	public FullTimeStaff(String fullName, String id, int qualificationLevel,
-	                     int rank, int contributionHours) {
-		super(fullName, id, qualificationLevel);
-		setRank(rank);
-		setContributionHours(contributionHours);
+When implementing an interface, one would require the method to be implemented.
+In the `AcademicStaff` class, assume that the `introduce()` prints out a greeting statement.
 
-		switch(this.rank) {
-			case 1:
-				setBaseSalary(2000);
-				break;
-
-			case 2:
-				setBaseSalary(2500);
-				break;
-
-			case 3:
-				setBaseSalary(3000);
-				break;
-
-			default:
-				setBaseSalary(0);
-		}
-	}
-
-	public FullTimeStaff(PartTimeStaff pt, int rank, int contributionHours) {
-		this(pt.getFullName(), pt.getId(), pt.getQualificationLevel(), rank,
-				contributionHours);
-	}
-
-    /* ... */
-}
-```
-
-```java linenums="1" hl_lines="9-10 16-17" title="PartTimeStaff.java"
-public class PartTimeStaff extends AcademicStaff {
-	private double hourlyRate;
-	private int hoursWorked;
-
-	// Constructors
-	public PartTimeStaff(String fullName, String id, int qualificationLevel,
-	                     double hourlyRate, int hoursWorked) {
-		super(fullName, id, qualificationLevel);
-		setHourlyRate(hourlyRate);
-		setHoursWorked(hoursWorked);
-	}
-
-	public PartTimeStaff(String fullName, String id, int qualificationLevel,
-	                     double hourlyRate) {
-		super(fullName, id, qualificationLevel);
-		setHourlyRate(hourlyRate);
-		setHoursWorked(0);
-	}
-
-	public PartTimeStaff(FullTimeStaff ft, double hourlyRate) {
-		this(ft.getFullName(), ft.getId(), ft.getQualificationLevel(),
-				hourlyRate);
-	}
-
+```java linenums="1" hl_lines="4-6" title="AcademicStaff.java"
+public class AcademicStaff implements Manners {
 	/* ... */
-}
 
-```
-
-### try-catch-finally block
-
-We've implemented the classes such that they throw the appropriate Exception classes as and when necessary.
-However, without specifying a method of catching such Exception classes, your program will not terminate gracefully.
-
-In the driver class' `main` method, surround your code with the try-catch block as follows:
-
-```java linenums="1" hl_lines="3-11" title="Driver.java"
-public class Driver {
-	public static void main(String[] args) {
-		try {
-
-            /* testing code goes here */
-
-		} catch(IllegalArgumentException ex) {
-            System.out.println(ex.getMessage());
-		} catch(Exception ex) {
-            ex.printStackTrace();
-        }
+	public void introduce() {
+		System.out.println("Hi, I'm " + fullName + "!");
 	}
 }
 ```
 
-The program is now set to check for Exception objects being thrown from anything that is called from the `try` block.
-Once the matching Exception object is caught, the program proceeds to run the statements from within that `catch` block.
-Whatever statements yet to be run from the `try` block is skipped.
+### Optional Activity
 
-Notice that the program checks for an `IllegalArgumentException` object first before a more generic `Exception` object.
-In practice, you should cater to catch specific Exception types before ending with checking for objects of the generic `Exception` class.
+How would you implement this interface in the subclasses should you want the `introduce()` method to act differently based on which subclass it is being called from?
 
-```java linenums="1" hl_lines="11-13" title="Driver.java"
-public class Driver {
-	public static void main(String[] args) {
-		try {
+## Task
 
-            /* testing code goes here */
+In this practical task, you will build simple programs using abstract classes.
+You will also learn how to add polymorphic behavior to the program using abstract methods.
 
-		} catch(IllegalArgumentException ex) {
-            System.out.println(ex.getMessage());
-		} catch(Exception ex) {
-            ex.printStackTrace();
-		} finally {
-            System.out.println("End of Staff program");
-        }
+### Product.java
+
+The skeleton code for `Product.java` is given below.
+The `Product` class is an abstract class that has an abstract method called `computeSalePrice()`.
+
+```java linenums="1" hl_lines="1 10-11" title="Product.java"
+// Product class is now an abstract class
+public abstract class Product {
+	private double regularPrice;
+
+	// Creates a new instance of Product
+	public Product(double regularPrice) {
+		this.regularPrice = regularPrice;
+	}
+
+	// computeSalesPrice() is now an abstract method
+	public abstract double computeSalePrice();
+
+	public double getRegularPrice() { return regularPrice; }
+
+	public void setRegularPrice(double regularPrice) {
+		this.regularPrice = regularPrice;
 	}
 }
 ```
 
-Regardless of whether an Exception is caught, if a `finally` block exists, all statements from this block is run.
-Statements in the `finally` block can be used to close resources (e.g., for writing to files) or display specific messages (e.g., to signal the end of the program).
+### Electronics.java
 
-Now, go bonkers and see if your attempts at securing your program a little better worked!
+The `Electronics` class itself is an abstract class because it does not provide implementation of the `computeSalePrice()` abstract method.
 
-## Tasks
-
-### Task 1
-
-Write a program that prompts the user to read two integers and displays their multiplication.
-Your program should prompt the user to read the number again if the input is incorrect.
-
-Example Output:
-
-    Enter two integers: 3 a
-    Incorrect input! Re-enter two integers: a 3
-    Incorrect input! Re-enter two integers: 3 3
-    Multiplication is 9
-
-### Task 2
-
-Write a program that meets the following requirements:
-
-- Create an array with 100 randomly chosen integers.
-- Prompt the user to enter the array index, then display the corresponding element value.
-  If the specified index is out of bounds, display the message "Index out of bounds".
-
-Example Output:
-
-    Enter an index: 101
-    Index out of bounds
-
-    Enter an index: 55
-    The element is 7313
-
-    Enter an index: 108
-    Index out of bounds
-
-### Task 3
-
-Write a class named `TestScores`.
-The class constructor should accept any array of test scores as its argument.
-The class should have a method that returns the average of the test scores.
-If any test score in the array is negative or greater than 100 then the class should throw an IllegialArugumentException with the specified detail message to its caller.
-Demonstrate the usage of the class in a test program.
-
-### Task 4
-
-Write a program that uses the following method to solve equations specified by the user.
-
-```java linenums="1"
+```java linenums="1" hl_lines="1-4" title="Electronics.java"
 /**
- * Returns the larger of the two roots of
- * the quadratic equation A*x*x + B*x + C = 0.
- * (Throws an exception if A == 0 or B*B-4*A*C < 0.)
+ * Electronics class is now an abstract class because it does not provide
+ * implementation of the computeSalePrice() abstract method.
  */
-public static double root(double A, double B, double C) throws IllegalArgumentException {
-	if (A == 0) {
-		throw new IllegalArgumentException("A can't be zero.");
-	} else {
-		double disc = B * B - 4 * A * C;
+public abstract class Electronics extends Product {
+	private String manufacturer;
 
-		if (disc < 0)
-			throw new IllegalArgumentException("Discriminant < zero.");
+	// Creates a new instance of Electronics
+	public Electronics(double regularPrice, String manufacturer) {
+		super(regularPrice);
+		this.manufacturer = manufacturer;
+	}
 
-		return (-B + Math.sqrt(disc)) / (2 * A);
+	public String getManufacturer() { return manufacturer; }
+
+	public void setManufacturer(String manufacturer) {
+		this.manufacturer = manufacturer;
 	}
 }
 ```
 
-Your program should allow the user to specify values for `A`, `B`, and `C`.
-It should call the method to compute a solution of the equation.
-If no error occurs, it should print the root.
-However, if an error occurs, your program should catch that error and print an error message.
-After processing one equation, the program should ask whether the user wants to enter another equation.
-The program should continue until the user answers no.
+1.  Write `MP3Player.java`.
+    The `MP3Player` class extends the `Electronics` class.
+    The `MP3Player` class should implement the `computeSalePrice()` method with the following statement:
 
-### Optional Task (Challenge Question)
+    ```java
+    return super.getRegularPrice() * 0.9;
+    ```
 
-Write a calculator program.
-The program terminates if any operand is non-numeric.
-Write a program with an exception handler that deals with non-numeric operands; then write another program without using an exception handler to achieve the same objective.
-Your program should display a message that informs the user of the wrong operand type before exiting.
+    Note:
+    In addition to the implementation of the abstract method, you might also need to include a constructor or instance variable.
 
-Example Output:
+2.  Write `TV.java`.
+    The `TV` class extends the `Electronics` abstract class.
+    The `TV` class should also implement the `computeSalePrice()` method, but with the following statement:
 
-    Input:
-    5 + y
-    Wrong Input: y
+    ```java
+    return super.getRegularPrice() * 0.8;
+    ```
 
-    Input:
-    4f x 5
-    Wrong Input: 4f
+    Note:
+    In addition to the implementation of the abstract method, you might also need to include a constructor or instance variable.
 
-    Input:
-    30 / 6
-    Output: 30 / 6 = 5
+3.  Complete `Book.java`.
+    The `Book` class extends the `Product` class.
+    The `Book` class should also implement the `computeSalePrice()` method, but with the following statement:
+
+    ```java
+    return super.getRegularPrice() * 0.5;
+    ```
+
+    You may continue with the given code for `Book.java` as follows:
+
+    ```java linenums="1" hl_lines="12" title="Book.java"
+    public class Book extends Product {
+    	private String publisher;
+    	private int yearPublished;
+
+    	// Creates a new instance of Book
+    	public Book(double regularPrice, String publisher,
+    							int yearPublished) {
+    		super(regularPrice);
+
+    	}
+
+    	// Implement abstract method here
+
+    	public String getPublisher() { return publisher; }
+
+    	public void setPublisher(String publisher) {
+    		this.publisher = publisher;
+    	}
+
+    	public int getYearPublished() { return yearPublished; }
+
+    	public void setYearPublished(int yearPublished) {
+    		this.yearPublished = yearPublished;
+    	}
+    }
+    ```
+
+4.  Run `Main.java`.
+
+    ```java linenums="1" hl_lines="6-9" title="Main.java"
+    public class Main {
+    	public static void main(String[] args) {
+    		// Declare and create Product array of size 5
+    		Product[] pa = new Product[5];
+
+    		/**
+    		  * Create object instances and assign them to
+    		  * the type of Product.
+    		  */
+    		pa[0] = new TV(1000, "Samsung", 30);
+    		pa[1] = new TV(2000, "Sony", 50);
+    		pa[2] = new MP3Player(250, "Apple", "blue");
+    		pa[3] = new Book(34, "Sun Press", 1992);
+    		pa[4] = new Book(15, "Korea Press", 1986);
+
+    		// Compute total regular price and total sale price
+    		double totalRegularPrice = 0;
+    		double totalSalePrice = 0;
+
+    		for(int i = 0; i < pa.length; i++) {
+    			/**
+    			  * Call a method of the superclass to get
+    			  * the regular price.
+    			  */
+    			totalRegularPrice += pa[i].getRegularPrice();
+
+    			/**
+    			  * Since the sale price is computed differently
+    			  * depending on the product type, overriding
+    			  * (implementation) method of the object instance
+    			  * of the subclass gets invoked. This is runtime
+    			  * polymorphic behavior.
+    			  */
+    			totalSalePrice += pa[i].computeSalePrice();
+
+    			System.out.println("Item number " + i
+    				+ ": Type = " + pa[i].getClass().getName()
+    				+ ", Regular price = " + pa[i].getRegularPrice()
+    				+ ", Sale price = " + pa[i].computeSalePrice());
+    		}
+    		System.out.println("totalRegularPrice = "
+    			+ totalRegularPrice);
+    		System.out.println("totalSalePrice = " + totalSalePrice);
+    	}
+    }
+    ```
+
+    You should observe the following output results:
+
+        Item number 0: Type = myonlineshop.TV, Regular price = 1000.0, Sale price = 800.0
+        Item number 1: Type = myonlineshop.TV, Regular price = 2000.0, Sale price = 1600.0
+        Item number 2: Type = myonlineshop.MP3Player, Regular price = 250.0, Sale price = 225.0
+        Item number 3: Type = myonlineshop.Book, Regular price = 34.0, Sale price = 17.0
+        Item number 4: Type = myonlineshop.Book, Regular price = 15.0, Sale price = 7.5
+        totalRegularPrice = 3299.0
+        totalSalePrice = 2649.5
