@@ -2,132 +2,207 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://deezombiedude612.github.io/oop-labs/guides/</loc>
+         <lastmod>2022-08-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://deezombiedude612.github.io/oop-labs/install-jdk/</loc>
+         <lastmod>2022-08-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://deezombiedude612.github.io/oop-labs/intellij-setup/</loc>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/lab01/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/lab02/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/lab03/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/lab04/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/lab05/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/lab06/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/lab07/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/lab08/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/lab09/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/lab10/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/lab11/</loc>
-         <lastmod>2022-05-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://deezombiedude612.github.io/oop-labs/practical-preparation/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/archive/202108/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/archive/202108/lab00/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/archive/202108/lab01/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/archive/202108/lab02/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/archive/202108/lab03/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/archive/202108/lab04/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/archive/202108/lab05/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/archive/202108/lab06/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/archive/202108/lab07/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/archive/202108/lab08/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/archive/202108/lab09/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/archive/202108/lab10/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://deezombiedude612.github.io/oop-labs/archive/202108/lab11/</loc>
-         <lastmod>2022-05-30</lastmod>
+         <lastmod>2022-08-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://deezombiedude612.github.io/oop-labs/archive/202204/</loc>
+         <lastmod>2022-08-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://deezombiedude612.github.io/oop-labs/archive/202204/lab01/</loc>
+         <lastmod>2022-08-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://deezombiedude612.github.io/oop-labs/archive/202204/lab02/</loc>
+         <lastmod>2022-08-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://deezombiedude612.github.io/oop-labs/archive/202204/lab03/</loc>
+         <lastmod>2022-08-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://deezombiedude612.github.io/oop-labs/archive/202204/lab04/</loc>
+         <lastmod>2022-08-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://deezombiedude612.github.io/oop-labs/archive/202204/lab05/</loc>
+         <lastmod>2022-08-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://deezombiedude612.github.io/oop-labs/archive/202204/lab06/</loc>
+         <lastmod>2022-08-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://deezombiedude612.github.io/oop-labs/archive/202204/lab07/</loc>
+         <lastmod>2022-08-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://deezombiedude612.github.io/oop-labs/archive/202204/lab08/</loc>
+         <lastmod>2022-08-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://deezombiedude612.github.io/oop-labs/archive/202204/lab09/</loc>
+         <lastmod>2022-08-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://deezombiedude612.github.io/oop-labs/archive/202204/lab10/</loc>
+         <lastmod>2022-08-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://deezombiedude612.github.io/oop-labs/archive/202204/lab11/</loc>
+         <lastmod>2022-08-04</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://deezombiedude612.github.io/oop-labs/archive/202204/practical-preparation/</loc>
+         <lastmod>2022-08-04</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

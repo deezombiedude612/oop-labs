@@ -57,7 +57,7 @@ do {
 
    if (option < 0 || option > 5)
       System.out.println("Invalid option, try again!\n");
-} while(option < 0 || option > 5);
+} while (option < 0 || option > 5);
 ```
 
 Let's encapsulate this part of the solution into a method called `selectOperation`.
@@ -86,9 +86,9 @@ private static int selectOperation() {
       System.out.print("Enter operation >> ");
       option = input.nextInt();
 
-      if(option < 0 || option > 5)
+      if (option < 0 || option > 5)
          System.out.println("Invalid option, try again!\n");
-   } while(option < 0 || option > 5);
+   } while (option < 0 || option > 5);
 
    return option;
 }
@@ -213,6 +213,20 @@ switch (option) {
 }
 ```
 
+!!! note "With Enhanced switch Statement"
+
+    ```java linenums="1"
+    switch (option) {
+      case 1 -> System.out.println(num1 + " + " + num2 + " = " + (num1 + num2));
+      case 2 -> System.out.println(num1 + " - " + num2 + " = " + (num1 - num2));
+      case 3 -> System.out.println(num1 + " * " + num2 + " = " + (num1 * num2));
+      case 4 -> System.out.println(num1 + " / " + num2 + " = " + (num1 / num2));
+      case 5 -> System.out.println(num1 + " % " + num2 + " = " + (num1 % num2));
+      default -> {}
+    }
+
+    ```
+
 Here, we are only printing statements; printing statements do not constitute as returning anything to the method that called it in the first place.
 Since we are not expecting to returning any value at all, this new method we call `printResults()` will have a `void` return type.
 
@@ -243,6 +257,22 @@ private static void printResults(int option, int num1, int num2) {
    }
 }
 ```
+
+!!! note "printResults() with Enhanced switch Statement"
+
+    ```java linenums="1"
+    private static void printResults(int option, int num1, int num2) {
+      switch (option) {
+         case 1 -> System.out.println(num1 + " + " + num2 + " = " + (num1 + num2));
+         case 2 -> System.out.println(num1 + " - " + num2 + " = " + (num1 - num2));
+         case 3 -> System.out.println(num1 + " * " + num2 + " = " + (num1 * num2));
+         case 4 -> System.out.println(num1 + " / " + num2 + " = " + (num1 / num2));
+         case 5 -> System.out.println(num1 + " % " + num2 + " = " + (num1 % num2));
+         default -> {}
+      }
+    }
+
+    ```
 
 Note here that this time, we are passing parameters into this method.
 This is because unlike the last 2 methods which did not require any input from the method that called it, this method requires those 3 variables in order to function.

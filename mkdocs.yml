@@ -62,20 +62,36 @@ extra_javascript:
 nav:
   - Home: index.md
   - Guides:
-      - Practical Preparation: practical-preparation.md
-  - 2022 April:
+      - Guides: guides.md
+      - Installing Java JDK: install-jdk.md
+      - Setting Up IntelliJ IDEA: intellij-setup.md
+  - 2022 August:
       - lab01.md
       - lab02.md
       - lab03.md
-      - lab04.md
-      - lab05.md
-      - lab06.md
-      - lab07.md
-      - lab08.md
-      - lab09.md
-      - lab10.md
-      - lab11.md
+      # - lab04.md
+      # - lab05.md
+      # - lab06.md
+      # - lab07.md
+      # - lab08.md
+      # - lab09.md
+      # - lab10.md
+      # - lab11.md
   - Archive:
+      - 2022 April:
+          - Home: archive/202204/index.md
+          - archive/202204/practical-preparation.md
+          - archive/202204/lab01.md
+          - archive/202204/lab02.md
+          - archive/202204/lab03.md
+          - archive/202204/lab04.md
+          - archive/202204/lab05.md
+          - archive/202204/lab06.md
+          - archive/202204/lab07.md
+          - archive/202204/lab08.md
+          - archive/202204/lab09.md
+          - archive/202204/lab10.md
+          - archive/202204/lab11.md
       - 2021 August:
           - Home: archive/202108/index.md
           - archive/202108/lab00.md
