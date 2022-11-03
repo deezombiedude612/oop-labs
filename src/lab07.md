@@ -5,6 +5,138 @@ template: base.html
 # Practical 07: Classes and Objects (Part 2)
 
 Continuing off where we left off in the previous practical, we will now implement a form of encapsulation into our program.
+In addition, you will begin using arrays or ArrayLists to contain a group of like objects together.
+
+## Visiblity Modifiers
+
+By default, a class, variable, or method can be access by any class in the same package.
+However, this can cause misuse of an object.
+This can be rectified by restricting acess to a class' members.
+
+Member access control is acheived through the use of 4 **visibility modifiers**:
+
+- default/package (`~`): By default, the class variable or method can be accessed by any class in the same package (folder).
+- public (`+`): The class variable or method is visible to any class in any package.
+- private (`-`): The class variable or method can be accessed only by the declaring class.
+- protected (`#`): The class variable or method can be accessed by any class in the same package or its subclasses, even if the subclasses are in a different package.
+
+### Visibility of Data Members
+
+By default, data members should be `private`, as it is not good for them to be easily modifiable from another class.
+This is because:
+
+- data can be tampered
+- it makes the class difficult to maintain and vulnerable to bugs
+
+By making data members `private`, it disallows them from being accessed by an object through a direct reference outside the class.
+In order to retrieve and modify these data fields, you will now need to provide accessor and mutator methods as interfaces to facilitate these operations.
+
+- Accessor methods (or **get** methods) are methods used to read private properties.
+  They always start with `get` followed by the name of the property (unless it's `boolean`, then you start with `is`).
+- Mutator methods (or **set** methods) are methods used to modify private properties.
+  They always start with `set` followed by the name of the property.
+
+## Activity
+
+Let's revisit each of the two classes we made in Practical 06's activity.
+
+For both sets of classes,
+
+1. Add the _public_ keyword in front of the class methods and constructors.
+2. Set the data members _private_ and add their relevant accessor and mutator methods (i.e., `get` and `set` methods).
+3. Modify your test class accordingly to cater for any errors.
+   Did you find that some of the statements that worked before started not working this time?
+4. Modify your class diagrams to indicate the visibility modifiers used for each class data member and method.
+
+### Activity 1: The `Rectangle` Class
+
+??? success "Rectangle Class (Solution)"
+
+    ```java linenums="1" title="Rectangle.java"
+    public class Rectangle {
+    	private double width;
+    	private double height;
+
+    	public Rectangle() {
+    		width = 1;
+    		height = 1;
+    	}
+
+    	public Rectangle(double newWidth, double newHeight) {
+    		width = newWidth;
+    		height = newHeight;
+    	}
+
+    	// Accessor methods
+    	public double getWidth() {
+    		return width;
+    	}
+
+    	public double getHeight() {
+    		return height;
+    	}
+
+    	// Mutator methods
+    	public void setWidth(double width) {
+    		this.width = width;
+    	}
+
+    	public void setHeight(double height) {
+    		this.height = height;
+    	}
+
+    	// Other methods
+    	public double getArea() {
+    		return width * height;
+    	}
+
+    	public double getPerimeter() {
+    		return 2 * (width + height);
+    	}
+    }
+    ```
+
+??? success "Test Class (Solution)"
+
+    ```java linenums="1" title="TestRectangle.java"
+    public class Rectangle {
+        public static void main(String[] args) {
+            Rectangle r1 = new Rectangle(4, 40);
+            Rectangle r2 = new Rectangle(3.5, 35.9);
+
+            System.out.println("RECTANGLE 1");
+            // System.out.println("Width: " + r1.width);
+            System.out.println("Width: " + r1.getWidth());
+            // System.out.println("Width: " + r1.height);
+            System.out.println("Height: " + r1.getHeight());
+            System.out.println("Area: " + r1.getArea());
+            System.out.println("Perimeter: " + r1.getPerimeter());
+
+            System.out.println("\nRECTANGLE 2");
+            // System.out.println("Width: " + r2.width);
+            System.out.println("Width: " + r2.getWidth());
+            // System.out.println("Width: " + r2.height);
+            System.out.println("Height: " + r2.getHeight());
+            System.out.println("Area: " + r2.getArea());
+            System.out.println("Perimeter: " + r2.getPerimeter());
+        }
+    }
+    ```
+
+    **OUTPUT:**
+    ```
+    RECTANGLE 1
+    Width: 4.0
+    Height: 40.0
+    Area: 160.0
+    Perimeter: 88.0
+
+    RECTANGLE 2
+    Width: 3.5
+    Height: 35.9
+    Area: 125.64999999999999
+    Perimeter: 78.8
+    ```
 
 ## Tasks
 
@@ -53,6 +185,57 @@ Notes:
 2. Modify the `House` class by using the `this` keyword to refer to the data member(s) and constructor (if possible).
 
 ### Task 3
+
+Design a class named `QuadraticEquation` for a quadratic equation $ax^2 + bx + c = 0$.
+The class contains:
+
+- private data fields `a`, `b`, and `c` that represent three coefficients.
+- a constructor with the arguments for `a`, `b`, and `c`.
+- three getter methods for `a`, `b`, and `c`.
+- a method named `getDiscriminant()` that returns the discriminant, which is $b^2 - 4ac$.
+- the methods `getRoot1()` and `getRoot2()` for returning two roots of the equation
+
+$$ r_1 = \frac{-b+\sqrt{b^2-4ac}}{2a} \text{ and } r_2 = \frac{-b-\sqrt{b^2-4ac}}{2a} $$
+
+These methods are useful only if the discriminant is non-negative.
+Let these methods return **0** if the discriminant is negative.
+
+Draw the UML diagram for the class then implement the class.
+Write a test program that prompts the user to enter values for $a$, $b$, and $c$ and displays the result based on the discriminant.
+If the discriminant is positive, display the two roots.
+If the discriminant is 0, display one root.
+Otherwise, display "The equation has no roots."
+
+Sample runs are as follows:
+
+![Task 3 Sample Runs](./images/lab07-03.png)
+
+## Challenge Tasks
+
+### Task 1
+
+In an $n$-sided regular polygon, all sides have the same length and all angles have the same degree (i.e., the polygon is both equilateral and equiangular).
+Design a class named `RegularPolygon` that contains:
+
+- A private `int` data field named `n` that defines the number of sides in the polygon with default value **3**.
+- A private `double` data field named `side` that stores the length of the side with default value **1**.
+- A private `double` data field named `x` that defines the $x$-coordinate of the polygon's center with default value **0**.
+- A private `double` data field named `y` that defines the $y$-coordinate of the polygon's center with default value **0**.
+- A no-arg constructor that creates a regular polygon with default values.
+- A constructor that creates a regular polygon with the specified number of sides and length of side, centered at **(0, 0)**.
+- A constructor that creates a regular polygon with the specified number of sides, length of side, and $x$- and $y$-coordinates.
+- The accessor and mutator methods for all data fields.
+- The method `getPerimeter()` that returns the perimeter of the polygon.
+- The method `getArea()` that returns the area of the polygon.
+  The formula for computing the area of a regular polygon is
+
+$$\text{Area}=\frac{n\times s^2}{4\times \tan{\frac{\pi}{n}}}$$
+
+Draw the UML diagram for the class then implement the class.
+Write a test program that creates three `RegularPolygon` objects, created using the no-arg constructor, using `RegularPolygon(6, 4)`, and using `RegularPolygon(10, 4, 5.6, 7.8)`.
+For each object, display its perimeter and area.
+
+### Task 2
 
 Consider the following information:
 

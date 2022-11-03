@@ -190,7 +190,7 @@ public abstract class Electronics extends Product {
     ```
 
     Note:
-    In addition to the implementation of the abstract method, you might also need to include a constructor or instance variable.
+    In addition to the implementation of the abstract method, you also need to include a constructor and a `String` instance variable called `color`.
 
 2.  Write `TV.java`.
     The `TV` class extends the `Electronics` abstract class.
@@ -201,7 +201,7 @@ public abstract class Electronics extends Product {
     ```
 
     Note:
-    In addition to the implementation of the abstract method, you might also need to include a constructor or instance variable.
+    In addition to the implementation of the abstract method, you also need to include a constructor and an `int` instance variable called `quantity`.
 
 3.  Complete `Book.java`.
     The `Book` class extends the `Product` class.
@@ -213,7 +213,7 @@ public abstract class Electronics extends Product {
 
     You may continue with the given code for `Book.java` as follows:
 
-    ```java linenums="1" hl_lines="12" title="Book.java"
+    ```java linenums="1" hl_lines="13" title="Book.java"
     public class Book extends Product {
     	private String publisher;
     	private int yearPublished;
@@ -222,7 +222,8 @@ public abstract class Electronics extends Product {
     	public Book(double regularPrice, String publisher,
     							int yearPublished) {
     		super(regularPrice);
-
+    		setPublisher(publisher);
+    		setYearPublished(yearPublished);
     	}
 
     	// Implement abstract method here

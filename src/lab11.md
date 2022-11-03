@@ -330,7 +330,7 @@ However, if an error occurs, your program should catch that error and print an e
 After processing one equation, the program should ask whether the user wants to enter another equation.
 The program should continue until the user answers no.
 
-### Optional Task (Challenge Question)
+### Challenge Task
 
 Write a calculator program.
 The program terminates if any operand is non-numeric.

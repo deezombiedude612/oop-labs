@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://deezombiedude612.github.io/oop-labs/lab05/">
       
       <link rel="icon" href="../assets/images/hhicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.7">
     
     
       
@@ -19,13 +19,14 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.69437709.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
+
     
     
     
@@ -44,6 +45,7 @@
     
       
 
+    
     
     
   </head>
@@ -147,7 +149,7 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -614,9 +616,36 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#challenge-tasks" class="md-nav__link">
+    Challenge Tasks
+  </a>
+  
+    <nav class="md-nav" aria-label="Challenge Tasks">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
-  <a href="#task-6" class="md-nav__link">
-    Task 6
+  <a href="#task-1_1" class="md-nav__link">
+    Task 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-2_1" class="md-nav__link">
+    Task 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-3_1" class="md-nav__link">
+    Task 3
   </a>
   
 </li>
@@ -657,6 +686,76 @@
     <li class="md-nav__item">
       <a href="../lab07/" class="md-nav__link">
         Practical 07: Classes and Objects (Part 2)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab08/" class="md-nav__link">
+        Practical 08: Inheritance
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab09/" class="md-nav__link">
+        Practical 09: Polymorphism
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab10/" class="md-nav__link">
+        Practical 10: Abstract Classes and Interfaces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab11/" class="md-nav__link">
+        Practical 11: Exception Handling
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab12/" class="md-nav__link">
+        Practical 12: File I/O
       </a>
     </li>
   
@@ -1171,10 +1270,11 @@
             
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
 <h1 id="practical-05-methods">Practical 05: Methods</h1>
@@ -1564,101 +1664,36 @@ Use the following method header:</p>
 <p>For example, <code>mulDigit(234)</code> returns 24 (i.e., <span class="arithmatex">\(2 \times 3 \times 4\)</span>).</p>
 <!-- For example, `mulDigit(234)` returns 24 (i.e., 2 &#215; 3 &#215; 4). -->
 
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>Use the <code>%</code> operator to extract digits, and the <code>/</code> operator to remove the extracted digit.
+<details class="hint" open="open"><summary>Hint</summary><p>Use the <code>%</code> operator to extract digits, and the <code>/</code> operator to remove the extracted digit.
 For instance, to extract 4 from 234, use <code>234 % 10</code> (= 4).
 To remove 4 from 234, use <code>234 / 10</code> (= 23).
 Use a loop to repeatedly extract and remove the digit until all the digits are extracted.
 Write a test program that prompts the user to enter an integer and displays the multiplication of all its digits.</p>
-</div>
+</details>
 <p>Write a test program that</p>
 <ol>
 <li>prompts the user to enter an integer, then displays the result of all its digits multiplied together</li>
 <li>randomly generates a number ranging between (and inclusive of) 100 and 10,000, then displays the result of all its digits multiplied together</li>
 </ol>
 <h3 id="task-2">Task 2</h3>
-<p>Create a class called <code>PrimeNumber</code> which contains 3 methods:</p>
-<ol>
-<li><code>isPrimeNumber(int num)</code><br>
-   This will return <strong>true</strong> if <code>num</code> is prime, and <strong>false</strong> otherwise.</li>
-<li><code>getListOfPrimeNumbers(int start, int end)</code><br>
-   This will return the list of prime numbers between the <code>start</code> and <code>end</code> number.</li>
-<li><code>getDivisible(int num)</code><br>
-   This will return the list of divisible numbers for the provided number.</li>
-</ol>
+<p>Write a class that contains the following two methods:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="cm">/** Convert from feet to meters */</span><span class="w"></span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">footToMeter</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">foot</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="cm">/** Convert from meters to feet */</span><span class="w"></span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">meterToFoot</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">meter</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<p>The formula for the conversion is:</p>
+<div class="arithmatex">\[ meter = 0.305 \times foot \]</div>
+<div class="arithmatex">\[ foot = 3.279 \times meter \]</div>
+<p>Write a test program that invokes these methods when necessary after prompting to enter either a value in feet or meters (ask for choice first).</p>
 <h3 id="task-3">Task 3</h3>
-<p>Write a method that converts a hexadecimal number into a decimal number.
-For example, ABCD<sub>16</sub> is calculated as</p>
-<div class="arithmatex">\[ = A \times 16^3 + B \times 16^2 + C \times 16^1 + D \times 16^0 = 43981 \]</div>
-<!-- ABCD<sub>16</sub> = A &#215; 16<sup>3</sup> + B &#215; 16<sup>2</sup> + C &#215; 16<sup>1</sup> + D &#215; 16<sup>0</sup> = 43981 -->
-
-<p>You may use the following reference:</p>
-<table>
-<thead>
-<tr>
-<th>Hexadecimal</th>
-<th align="center">0</th>
-<th align="center">1</th>
-<th align="center">2</th>
-<th align="center">3</th>
-<th align="center">4</th>
-<th align="center">5</th>
-<th align="center">6</th>
-<th align="center">7</th>
-<th align="center">8</th>
-<th align="center">9</th>
-<th align="center">A</th>
-<th align="center">B</th>
-<th align="center">C</th>
-<th align="center">D</th>
-<th align="center">E</th>
-<th align="center">F</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Decimal</td>
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">2</td>
-<td align="center">3</td>
-<td align="center">4</td>
-<td align="center">5</td>
-<td align="center">6</td>
-<td align="center">7</td>
-<td align="center">8</td>
-<td align="center">9</td>
-<td align="center">10</td>
-<td align="center">11</td>
-<td align="center">12</td>
-<td align="center">13</td>
-<td align="center">14</td>
-<td align="center">15</td>
-</tr>
-</tbody>
-</table>
-<p>Once you have completed your method, you can verify your result by calling the following function:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="o">&lt;</span><span class="n">number_input</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">);</span><span class="w"></span>
-</code></pre></div>
-<p>Test your program with the following values: 2AC, AB3F, FF99</p>
-<h3 id="task-4">Task 4</h3>
 <p>Write a class that contains the following two methods:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cm">/* Convert miles to kilometers */</span><span class="w"></span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">mileToKilometer</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">mile</span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cm">/* Convert pounds to kilograms */</span><span class="w"></span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">poundToKilogram</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">pound</span><span class="p">)</span><span class="w"></span>
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="cm">/* Convert kilometers to miles */</span><span class="w"></span>
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">kilometerToMile</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">kilometer</span><span class="p">)</span><span class="w"></span>
-</code></pre></div>
-<p>The formula for the conversion is: 1 mile = 1.609 kilometers</p>
-<p>Write a test program that invokes these methods when necessary after prompting to enter either a value in kilometers or miles (ask for choice first).</p>
-<h3 id="task-5">Task 5</h3>
-<p>Write a class that contains the following two methods:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cm">/* Convert pounds to kilograms */</span><span class="w"></span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">poundToKilogram</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">pound</span><span class="p">)</span><span class="w"></span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="cm">/* Convert kilograms to pounds */</span><span class="w"></span>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">kilogramToPound</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">kilogram</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="cm">/* Convert kilograms to pounds */</span><span class="w"></span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">kilogramToPound</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">kilogram</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 <p>The formula for the conversion is:</p>
 <div class="arithmatex">\[ pounds = 0.453 \times kilograms \]</div>
@@ -1668,13 +1703,49 @@ For example, ABCD<sub>16</sub> is calculated as</p>
 <!-- kilogram = 2.204 &#215; pound -->
 
 <p>Write a test program that invokes these methods when necessary after prompting to enter either a value in kilograms or pounds (ask for choice first).</p>
-<h3 id="task-6">Task 6</h3>
+<h3 id="task-4">Task 4</h3>
+<p>Write a method to compute the following summation:</p>
+<div class="arithmatex">\[ m(i) = \frac{1}{2} + \frac{2}{3} + \cdots + \frac{i}{i + 1} \]</div>
+<p>Write a test program that displays the following table:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>i        m(i)
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>==================
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>1        0.5000
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>2        1.1667
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>3        1.9167
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>4        2.7167
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>5        3.5500
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>6        4.4071
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>7        5.2821
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>8        6.1710
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>9        7.0710
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>10       7.9801
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>11       8.8968
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>12       9.8199
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>13       10.7484
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>14       11.6818
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>15       12.6193
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>16       13.5604
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>17       14.5049
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>18       15.4523
+<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>19       16.4023
+<a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a>20       17.3546
+</code></pre></div>
+<h3 id="task-5">Task 5</h3>
+<p>A prime number is called a <em>Mersenne prime</em> if it can be written in the form <span class="arithmatex">\(2^p - 1\)</span> for some positive integer <span class="arithmatex">\(p\)</span>.
+Write a program that finds all Mersenne primes with <span class="arithmatex">\(p ≤ 31\)</span> and displays the output as follows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>p        2^p - 1
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>==================
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>2        3
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>3        7
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>5        31
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>...
+</code></pre></div>
+<h2 id="challenge-tasks">Challenge Tasks</h2>
+<h3 id="task-1_1">Task 1</h3>
 <p>Utilize methods to solve this multidimensional array problem.</p>
 <p>Write a program that randomly fills in 0s and 1s into a Tic-tac-toe board, prints the board, and find the rows, columns, or diagonals with all 0s or 1s.
 Use a two-dimensional array to represent a Tic-tac-toe board.</p>
-<details class="hint">
-<summary>Hint</summary>
-<p>Use <code>Math.random() * 2</code> to randomly generate the 0s and 1s.</p>
+<details class="hint"><summary>Hint</summary><p>Use <code>Math.random() * 2</code> to randomly generate the 0s and 1s.</p>
 </details>
 <p>Here are some sample runs of the program:</p>
 <div class="highlight"><pre><span></span><code>TicTacToe board:
@@ -1718,14 +1789,90 @@ All 1&#39;s on column 1
 All 1&#39;s on major diagonal
 All 1&#39;s on subdiagonal
 </code></pre></div>
+<h3 id="task-2_1">Task 2</h3>
+<p>Some websites impose certain rules for passwords.
+Write a method that checks whether a string is a valid password.
+Suppose the password rules are as follows:</p>
+<ul>
+<li>A password must have at least eight characters.</li>
+<li>A password must contain only letters and digits.</li>
+<li>A password must contain at least two digits.</li>
+</ul>
+<p>Write a program that prompts the user to enter a password and displays <code>Valid Password</code> if the rules are followed, or <code>Invalid Password</code> otherwise.</p>
+<h3 id="task-3_1">Task 3</h3>
+<p>Credit card numbers follow certain patterns.
+A credit card number must have between 13 and 16 digits.
+It must start with</p>
+<ul>
+<li>4 for Visa cards</li>
+<li>5 for Master cards</li>
+<li>37 for American Express cards</li>
+<li>6 for Discover cards</li>
+</ul>
+<p>In 1954, Hans Luhn of IBM proposed an algorithm for validating credit card numbers.
+The algorithm is useful to determine whether a card number is entered correctly, or whether a credit card is scanned correctly by a scanner.
+Credit card numbers are generated following this validity check, commonly known as the <em>Luhn check</em> or the <em>Mod 10 check</em>, which can be described as follows (for illustration, consider the card number 4388576018402626):</p>
+<ol>
+<li>
+<p>Double every second digit from right to left.
+    If doubling of a digit results in a two-digit number, add up the two digits to get a single-digit number.</p>
+<p><img alt="Task 3 Step 1" src="../images/lab05-c03.png" /></p>
+</li>
+<li>
+<p>Now add all single-digit numbers from Step 1.</p>
+<div class="arithmatex">\[ 4 + 4 + 8 + 2 + 3 + 1 + 7 + 8 = 37 \]</div>
+</li>
+<li>
+<p>Add all digits in the odd places from right to left in the card number.</p>
+<div class="arithmatex">\[ 6 + 6 + 0 + 8 + 0 + 7 + 8 + 3 = 38 \]</div>
+</li>
+<li>
+<p>Sum the results from Step 2 and Step 3.</p>
+<div class="arithmatex">\[ 37 + 38 = 75 \]</div>
+</li>
+<li>
+<p>If the result from Step 4 is divisible by 10, the card number is valid; otherwise, it is invalid.
+    For example, the number 4388576018402626 is invalid, but the number 4388576018410707 is valid.</p>
+</li>
+</ol>
+<p>Write a program that prompts the user to enter a credit card number as a long integer.
+Display whether the number is valid or invalid.
+Design your program to use the following methods:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="cm">/** Return true if the card number is valid */</span><span class="w"></span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isValid</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">number</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="cm">/** Get the result from Step 2 */</span><span class="w"></span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">sumOfDoubleEvenPlace</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">number</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="cm">/** Return this number if it is a single digit, otherwise,</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="cm"> * return the sum of the two digits */</span><span class="w"></span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getDigit</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="cm">/** Return sum of odd-place digits in number */</span><span class="w"></span>
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">sumOfOddPlace</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">number</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="cm">/** Return true if the number d is a prefix for number */</span><span class="w"></span>
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">prefixMatched</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">number</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>
+<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="cm">/** Return the number of digits in d */</span><span class="w"></span>
+<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getSize</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>
+<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="cm">/** Return the first k number of digits from number. If the</span>
+<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="cm"> * number of digits in number is less than k, return number. */</span><span class="w"></span>
+<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">getPrefix</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">number</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<p>(You may also implement this program by reading the input as a string and processing the string to validate the credit card.)</p>
+<p><img alt="Task 3 Output" src="../images/lab05-c03R.png" /></p>
 
 
 
 
-              
-            </article>
-            
-          </div>
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
       </main>
@@ -1789,13 +1936,13 @@ All 1&#39;s on subdiagonal
     
     
     <a href="https://twitter.com/deezombiedude" target="_blank" rel="noopener" title="deezombiedude on Twitter" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
     </a>
   
     
     
     <a href="https://github.com/deezombiedude612" target="_blank" rel="noopener" title="deezombiedude612 on GitHub" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
     </a>
   
 </div>
@@ -1809,10 +1956,10 @@ All 1&#39;s on subdiagonal
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      <script src="../assets/javascripts/bundle.8492ddcf.min.js"></script>
       
         <script src="../js/mathjax.js"></script>
       

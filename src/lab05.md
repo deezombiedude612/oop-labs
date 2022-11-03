@@ -315,7 +315,7 @@ For example, `mulDigit(234)` returns 24 (i.e., $2 \times 3 \times 4$).
 
 <!-- For example, `mulDigit(234)` returns 24 (i.e., 2 &#215; 3 &#215; 4). -->
 
-!!! hint
+???+ hint
 
     Use the `%` operator to extract digits, and the `/` operator to remove the extracted digit.
     For instance, to extract 4 from 234, use `234 % 10` (= 4).
@@ -330,55 +330,25 @@ Write a test program that
 
 ### Task 2
 
-Create a class called `PrimeNumber` which contains 3 methods:
-
-1. `isPrimeNumber(int num)`<br>
-   This will return **true** if `num` is prime, and **false** otherwise.
-2. `getListOfPrimeNumbers(int start, int end)`<br>
-   This will return the list of prime numbers between the `start` and `end` number.
-3. `getDivisible(int num)`<br>
-   This will return the list of divisible numbers for the provided number.
-
-### Task 3
-
-Write a method that converts a hexadecimal number into a decimal number.
-For example, ABCD<sub>16</sub> is calculated as
-
-$$ = A \times 16^3 + B \times 16^2 + C \times 16^1 + D \times 16^0 = 43981 $$
-
-<!-- ABCD<sub>16</sub> = A &#215; 16<sup>3</sup> + B &#215; 16<sup>2</sup> + C &#215; 16<sup>1</sup> + D &#215; 16<sup>0</sup> = 43981 -->
-
-You may use the following reference:
-
-| Hexadecimal |  0  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  A  |  B  |  C  |  D  |  E  |  F  |
-| ----------- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Decimal     |  0  |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  | 10  | 11  | 12  | 13  | 14  | 15  |
-
-Once you have completed your method, you can verify your result by calling the following function:
-
-```java
-Integer.parseInt(<number_input>, 16);
-```
-
-Test your program with the following values: 2AC, AB3F, FF99
-
-### Task 4
-
 Write a class that contains the following two methods:
 
 ```java
-/* Convert miles to kilometers */
-public static double mileToKilometer(double mile)
+/** Convert from feet to meters */
+public static double footToMeter(double foot)
 
-/* Convert kilometers to miles */
-public static double kilometerToMile(double kilometer)
+/** Convert from meters to feet */
+public static double meterToFoot(double meter)
 ```
 
-The formula for the conversion is: 1 mile = 1.609 kilometers
+The formula for the conversion is:
 
-Write a test program that invokes these methods when necessary after prompting to enter either a value in kilometers or miles (ask for choice first).
+$$ meter = 0.305 \times foot $$
 
-### Task 5
+$$ foot = 3.279 \times meter $$
+
+Write a test program that invokes these methods when necessary after prompting to enter either a value in feet or meters (ask for choice first).
+
+### Task 3
 
 Write a class that contains the following two methods:
 
@@ -402,7 +372,56 @@ $$ kilograms = 2.204 \times pounds $$
 
 Write a test program that invokes these methods when necessary after prompting to enter either a value in kilograms or pounds (ask for choice first).
 
-### Task 6
+### Task 4
+
+Write a method to compute the following summation:
+
+$$ m(i) = \frac{1}{2} + \frac{2}{3} + \cdots + \frac{i}{i + 1} $$
+
+Write a test program that displays the following table:
+
+```
+i        m(i)
+==================
+1        0.5000
+2        1.1667
+3        1.9167
+4        2.7167
+5        3.5500
+6        4.4071
+7        5.2821
+8        6.1710
+9        7.0710
+10       7.9801
+11       8.8968
+12       9.8199
+13       10.7484
+14       11.6818
+15       12.6193
+16       13.5604
+17       14.5049
+18       15.4523
+19       16.4023
+20       17.3546
+```
+
+### Task 5
+
+A prime number is called a _Mersenne prime_ if it can be written in the form $2^p - 1$ for some positive integer $p$.
+Write a program that finds all Mersenne primes with $p ≤ 31$ and displays the output as follows:
+
+```
+p        2^p - 1
+==================
+2        3
+3        7
+5        31
+...
+```
+
+## Challenge Tasks
+
+### Task 1
 
 Utilize methods to solve this multidimensional array problem.
 
@@ -455,3 +474,83 @@ Here are some sample runs of the program:
     All 1's on column 1
     All 1's on major diagonal
     All 1's on subdiagonal
+
+### Task 2
+
+Some websites impose certain rules for passwords.
+Write a method that checks whether a string is a valid password.
+Suppose the password rules are as follows:
+
+- A password must have at least eight characters.
+- A password must contain only letters and digits.
+- A password must contain at least two digits.
+
+Write a program that prompts the user to enter a password and displays `Valid Password` if the rules are followed, or `Invalid Password` otherwise.
+
+### Task 3
+
+Credit card numbers follow certain patterns.
+A credit card number must have between 13 and 16 digits.
+It must start with
+
+- 4 for Visa cards
+- 5 for Master cards
+- 37 for American Express cards
+- 6 for Discover cards
+
+In 1954, Hans Luhn of IBM proposed an algorithm for validating credit card numbers.
+The algorithm is useful to determine whether a card number is entered correctly, or whether a credit card is scanned correctly by a scanner.
+Credit card numbers are generated following this validity check, commonly known as the _Luhn check_ or the _Mod 10 check_, which can be described as follows (for illustration, consider the card number 4388576018402626):
+
+1.  Double every second digit from right to left.
+    If doubling of a digit results in a two-digit number, add up the two digits to get a single-digit number.
+
+    ![Task 3 Step 1](./images/lab05-c03.png)
+
+2.  Now add all single-digit numbers from Step 1.
+
+    $$ 4 + 4 + 8 + 2 + 3 + 1 + 7 + 8 = 37 $$
+
+3.  Add all digits in the odd places from right to left in the card number.
+
+    $$ 6 + 6 + 0 + 8 + 0 + 7 + 8 + 3 = 38 $$
+
+4.  Sum the results from Step 2 and Step 3.
+
+    $$ 37 + 38 = 75 $$
+
+5.  If the result from Step 4 is divisible by 10, the card number is valid; otherwise, it is invalid.
+    For example, the number 4388576018402626 is invalid, but the number 4388576018410707 is valid.
+
+Write a program that prompts the user to enter a credit card number as a long integer.
+Display whether the number is valid or invalid.
+Design your program to use the following methods:
+
+```java
+/** Return true if the card number is valid */
+public static boolean isValid(long number)
+
+/** Get the result from Step 2 */
+public static int sumOfDoubleEvenPlace(long number)
+
+/** Return this number if it is a single digit, otherwise,
+ * return the sum of the two digits */
+public static int getDigit(int number)
+
+/** Return sum of odd-place digits in number */
+public static int sumOfOddPlace(long number)
+
+/** Return true if the number d is a prefix for number */
+public static boolean prefixMatched(long number, int d)
+
+/** Return the number of digits in d */
+public static int getSize(long d)
+
+/** Return the first k number of digits from number. If the
+ * number of digits in number is less than k, return number. */
+public static long getPrefix(long number, int k)
+```
+
+(You may also implement this program by reading the input as a string and processing the string to validate the credit card.)
+
+![Task 3 Output](./images/lab05-c03R.png)

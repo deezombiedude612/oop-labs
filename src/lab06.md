@@ -15,7 +15,7 @@ However, in object-oriented programming, one has to decompose problems into obje
 One must consider what objects are needed in order for the program to function.
 These objects will contain attributes and methods (i.e., their own functions) to play roles in a program.
 
-!!! note
+!!! note inline end
 
     Up to this point, you may have ensured that each task is completed within one Java class file.
     However, going forward for the next few practical exercises, your tasks will necessitate the need to create more than one Java class file per task.
@@ -23,7 +23,7 @@ These objects will contain attributes and methods (i.e., their own functions) to
 
 ## Activity: Object-Oriented Thinking
 
-### Task 1: The `Rectangle` Class
+### Activity 1: The `Rectangle` Class
 
 Design a class named Rectangle to represent a rectangle.
 The class should contain:
@@ -32,13 +32,79 @@ The class should contain:
 - A no-arg constructor that creates a default rectangle.
 - A constructor that creates a rectangle with the specified width and height.
 - A method named `getArea()` that returns the area of the rectangle.
-- A method named getPerimeter() that returns the perimeter of the rectangle.
+- A method named `getPerimeter()` that returns the perimeter of the rectangle.
 
 Draw the UML diagram for the class and then implement the class.
 Write a test program that creates two `Rectangle` objects — one with a width of 4 units and height of 40 units, and the other with a width of 3.5 units and height of 35.9 units.
 Display the width, height, area, and perimeter of each rectangle in this order.
 
-### Task 2: The `Stock` Class
+??? success "Rectangle Class (Solution)"
+
+    ```java linenums="1" title="Rectangle.java"
+    public class Rectangle {
+        double width;
+        double height;
+
+        public Rectangle() {
+            width = 1;
+            height = 1;
+        }
+
+        public Rectangle(double newWidth, double newHeight) {
+            width = newWidth;
+            height = newHeight;
+        }
+
+        public double getArea() {
+            return width * height;
+        }
+
+        public double getPerimeter() {
+            return 2 * (width + height);
+        }
+
+    }
+    ```
+
+??? success "Test Class (Solution)"
+
+    ```java linenums="1" title="TestRectangle.java"
+    public class TestRectangle {
+        public static void main(String[] args) {
+            Rectangle r1 = new Rectangle(4, 40);
+            Rectangle r2 = new Rectangle(3.5, 35.9);
+
+            System.out.println("RECTANGLE 1");
+            System.out.println("Width: " + r1.width);
+            System.out.println("Height: " + r1.height);
+            System.out.println("Area: " + r1.getArea());
+            System.out.println("Perimeter: " + r1.getPerimeter());
+
+            System.out.println("\nRECTANGLE 2");
+            System.out.println("Width: " + r2.width);
+            System.out.println("Height: " + r2.height);
+            System.out.println("Area: " + r2.getArea());
+            System.out.println("Perimeter: " + r2.getPerimeter());
+        }
+    }
+    ```
+
+    **OUTPUT:**
+    ```
+    RECTANGLE 1
+    Width: 4.0
+    Height: 40.0
+    Area: 160.0
+    Perimeter: 88.0
+
+    RECTANGLE 2
+    Width: 3.5
+    Height: 35.9
+    Area: 125.64999999999999
+    Perimeter: 78.8
+    ```
+
+### Activity 2: The `Stock` Class
 
 Design a class named `Stock` that contains:
 

@@ -333,6 +333,33 @@ Consider the class diagram given below:
   <figcaption>Employee Superclass with Manager and Clerk Subclasses</figcaption>
 </figure>
 
+<!-- ```mermaid
+classDiagram
+class BankAccount{
+    -name: String
+    -yearJoined: int
+		-basicSalary: double
+		-allowance: double
+		+BankAccount()
+		+getName(): String
+		+getYearJoined(): int
+		+getBasicSalary(): double
+		+getAllowance(): double
+		-setName(name: String)
+		-setYearJoined(yearJoined: int)
+		-setBasicSalary(basicSalary: double)
+		-setAllowance(allowance: double)
+    +toString(): String
+		+calculateSalary(): double
+}
+
+class Manager {
+	-travelClaims: double
+}
+
+BankAccount <|-- Manager
+``` -->
+
 1.  Implement all the classes as according to the given hierarchy.
 
 2.  Write a test program that creates an array named `empArray` that stores an object of an Employee, a Manager, and a Clerk.<br>
@@ -353,3 +380,6 @@ A bank offers its customers the following account types:
    Create two subclasses for saving and checking accounts.
 
 2. Write a test program that creates objects of the classes `Account`, `SavingsAccount`, and `CheckingAccount`.
+
+Draw the UML diagram for the classes and implement them.
+Write a test program that creates objects of `Account`, `SavingsAccount`, and `CheckingAccount` and invokes their `toString()` methods.

@@ -69,7 +69,7 @@ Sample Output:
 
     All Temperatures Processed
 
-!!! hint "Printing double Values in 2 Decimal Places"
+???+ hint "Printing double Values in 2 Decimal Places"
 
     The simplest solution to do this is by using the `printf()` statement.
 

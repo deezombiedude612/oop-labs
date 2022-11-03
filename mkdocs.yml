@@ -73,10 +73,11 @@ nav:
       - lab05.md
       - lab06.md
       - lab07.md
-      # - lab08.md
-      # - lab09.md
-      # - lab10.md
-      # - lab11.md
+      - lab08.md
+      - lab09.md
+      - lab10.md
+      - lab11.md
+      - lab12.md
   - Archive:
       - 2022 April:
           - Home: archive/202204/index.md
