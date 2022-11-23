@@ -296,7 +296,7 @@ Example Output:
 Write a class named `TestScores`.
 The class constructor should accept any array of test scores as its argument.
 The class should have a method that returns the average of the test scores.
-If any test score in the array is negative or greater than 100 then the class should throw an IllegialArugumentException with the specified detail message to its caller.
+If any test score in the array is negative or greater than 100 then the class should throw an IllegalArugumentException with the specified detail message to its caller.
 Demonstrate the usage of the class in a test program.
 
 ### Task 4
